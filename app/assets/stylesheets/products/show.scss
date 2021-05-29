@@ -5,15 +5,20 @@
 }
 
 .image {
-  width: 200px;
-  height: 100%;
+  width: 400px;
   margin-right: 50px;
   object-fit: cover;
+  border-radius: 10px;
 }
 
 .additional-product-info {
   display: flex;
+  margin-top: 20px;
   .upc {
     margin-right: 50px;
   }
+}
+
+button {
+  margin-right: 50px;
 }
