@@ -1,0 +1,19 @@
+.title-box, .product-card {
+  margin: 20px auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.image {
+  width: 200px;
+  height: 100%;
+  margin-right: 50px;
+  object-fit: cover;
+}
+
+.additional-product-info {
+  display: flex;
+  .upc {
+    margin-right: 50px;
+  }
+}
