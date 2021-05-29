@@ -1,2 +1,17 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="container py-5 text-center">
+  <h1>Find out how to <span class="green-highlight">recycle</span></h1>
+  <p class="head-text">Search for a specific product based on where you live.</p>
+</div>
+<div class="container">
+  <%= form_tag products_path, method: :get do %>
+  <%= text_field_tag :upc,
+    params[:upc],
+    class: "form-control",
+    placeholder: "Coke can or 54657678948"
+  %>
+  <%= submit_tag "Search", class: "btn-filled" %>
+<% end %>
+</div>
+<div class="container text-center">
+  <%= image_tag "undraw_takeout_boxes.svg", alt: "eco-illustration", width: 500 %>
+</div>
