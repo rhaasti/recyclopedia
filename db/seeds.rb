@@ -9,7 +9,7 @@ ProductMaterial.destroy_all
 Product.destroy_all
 Material.destroy_all
 
-puts "clean database"
+puts "...clean database"
 
 require "json"
 require "open-uri"
@@ -97,3 +97,5 @@ end
     end
   end
 end
+
+puts "...created #{Product.count} products, #{Material.count} materials, and #{ProductMaterial.count} product/material pairings"
