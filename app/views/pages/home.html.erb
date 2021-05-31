@@ -1,8 +1,8 @@
 <div class="container py-5 text-center">
-  <h1>Find out how to <span class="green-highlight">recycle</span></h1>
+  <h1 class="header">Find out how to <span class="green-highlight">recycle</span></h1>
   <p class="head-text">Search for a specific product based on where you live.</p>
 </div>
-<div class="container">
+<div class="container col-6">
   <%= form_tag products_path, method: :get do %>
   <%= text_field_tag :upc,
     params[:upc],
@@ -12,6 +12,25 @@
   <%= submit_tag "Search", class: "btn-filled" %>
 <% end %>
 </div>
-<div class="container text-center">
-  <%= image_tag "undraw_takeout_boxes.svg", alt: "eco-illustration", width: 500 %>
+<div class="container text-center home-image">
+  <%= cl_image_tag("undraw_takeout_boxes",
+      width: 800) %>
+</div>
+<div class="container-fluid bg-gray">
+  <div class="container py-5 text-center">
+    <h3 class="home-heading">Products by <span class="green-highlight">material type</span></h3>
+  </div>
+  <div class="container pb-5">
+    <div class="cards">
+      <div class="card-category">
+        Plastic
+      </div>
+      <div class="card-category">
+        Glass
+      </div>
+      <div class="card-category">
+        Paper
+      </div>
+    </div>
+  </div>
 </div>
