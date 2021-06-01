@@ -3,6 +3,7 @@
   <p class="head-text">Search for a specific product based on where you live.</p>
 </div>
 <div class="container col-6">
+  <!-- find out how to replace word search with icon -->
   <%= form_tag products_path, method: :get do %>
   <%= text_field_tag :upc,
     params[:upc],
