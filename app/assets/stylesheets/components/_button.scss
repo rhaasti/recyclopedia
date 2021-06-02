@@ -7,8 +7,11 @@
 }
 
 .btn-light {
-  background-color: #E8FFEB;
-  color: #58B660;
+  background-color: #E8FFEB !important;
+  color: #58B660 !important;
   width: 150px;
   text-align: center;
+  i {
+    color: #58B660;
+  }
 }

@@ -15,14 +15,12 @@
 @import "products/show";
 
 h1, h2, h3, h4 {
-  color: #363636;
+  color: $light-black;
 }
 
 p {
   color: #686868;
 }
-
-
 
 .dark-grey {
   color: #959595;
@@ -30,11 +28,14 @@ p {
 
 i {
   margin: 0 5px;
+  color: $dark-green
 }
-
 
 body {
   background-color: white;
 }
 
+.container {
+  margin: 25px auto;
+}
 
