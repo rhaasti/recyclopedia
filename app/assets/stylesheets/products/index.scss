@@ -1,7 +1,18 @@
+h2 {
+  margin-bottom: 25px;
+}
+
 .index-cards {
   display: grid;
   gap: 1em;
   grid-template-columns: 1fr 1fr 1fr;
+}
+
+.link {
+  color: $light-black;
+  &:hover {
+    color: $light-black;
+  }
 }
 
 @media(max-width: 1200px) {
