@@ -11,3 +11,28 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+@import "products/index";
+
+.container {
+  padding: 20px;
+}
+
+h2 {
+  margin: 36px auto;
+}
+
+.dark-green {
+  color: #08523C;
+}
+
+.dark-grey {
+  color: #959595;
+}
+
+i {
+  margin: 0 5px;
+}
+
+body {
+  background-color: white;
+}

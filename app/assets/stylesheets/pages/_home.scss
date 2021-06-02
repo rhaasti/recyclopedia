@@ -1,1 +1,22 @@
 // Specific CSS for your home-page
+body{
+  color: $light-black;
+}
+h1{
+  font-weight: 700;
+  font-size: 3.5rem;
+}
+.head-text{
+  color: $mid-grey;
+  font-size: 1.3rem;
+}
+.green-highlight{
+  color: $green;
+}
+.btn-filled{
+  background-color: $dark-green;
+  border-radius: 60px;
+  color: white;
+  padding: 8px 38px;
+  border-style: none;
+}
