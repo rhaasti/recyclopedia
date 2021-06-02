@@ -1,8 +1,9 @@
 class ProductsController < ApplicationController
 
   def index
-    @products = Product.all
-    # @products = Product.where(name: params[:name])
+    if params[:upc].present?
+      @products = Product.search_by_upc(params[:upc])
+    end
   end
 
   def show

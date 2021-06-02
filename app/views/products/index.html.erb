@@ -1,23 +1,30 @@
-<div class="container">
+
+<div class="container py-5">
   <h2> <%= Product.count %> relevant products </h2>
+
+  <% @products.each do |product|%>
+
   <div class="index-cards">
-    <% @products.each do |product| %>
-        <div class="card" style="width: 275px;">
-      <%= link_to product_path(product), class:"link" do %>
-          <%# <%= cl_image_tag @product.photo, crop: :fill, class: "card-img-top" %> %>
-          <div class="card-body">
-            <h5 class="card-title"><%= product.description %></h5>
-            <div class="card-additional-info">
-              <p>Curbside ✓</p>
-              <%= link_to bookmarks_path do%>
-                <i class="far fa-bookmark"></i>
-              <% end %>
-            </div>
-          </div>
+
+    <div class="card" style="width: 275px;">
+    <%= link_to product_path(product), class:"link" do %>
+      <%# <%= cl_image_tag @product.photo, crop: :fill, class: "card-img-top" %> %>
+      <img class="card-img-top" src="https://source.unsplash.com/random" alt="Card image cap" height="150px">
+      <div class="card-body">
+        <h5 class="card-title"> <%= product.description %> </h5>
+        <div class="card-additional-info">
+          <p>Curbside ✓</p>
+          <%= link_to bookmarks_path, class:"dark-green" do%>
+            <i class="far fa-bookmark"></i>
+          <% end %>
         </div>
-      <% end %>
-    <% end %>
+      </div>
+    </div>
+   <% end %>
+  <% end %>
+
+  </div>
+  <div class="container py-5">
+    <%= link_to "Back to home", root_path, class:"btn btn-dark" %>
   </div>
 </div>
-
-<%= link_to "Back to home", root_path, class:"btn btn-dark" %>
