@@ -1,9 +1,41 @@
-<h1> <%= @product.description %> <h2>
-<p> <%= @product.UPC %></p>
-<p> <%= @product.size %></p>
- <% @product.product_materials.each do |product|%>
-  <li><%= product.material.description %> | <%= product.material.long_description %></li>
-  <% end %>
+<div class="container">
+  <div class="title-box">
+    <h3><%= @product.description %></h3>
+    <%= link_to bookmarks_path, class:"dark-green" do%>
+      <i class="far fa-bookmark"></i>
+    <% end %>
+  </div>
 
-<%= cl_image_tag @product.photo, height: 200, width: 250, crop: :fill, class: "card-img-top" %>
+  <hr>
+
+  <div class="product-card">
+    <%= cl_image_tag @product.photo, crop: :fill, class: "image" %>
+    <div class="product-info">
+      <h3>Material description</h3>
+        <p> 
+        <% @product.product_materials.each do |product|%>
+        <li><%= product.material.description %> — <%= product.material.long_description %></li>
+        <% end %>
+        </p>      
+        <div class="tags">
+          <button class="btn-filled btn-light"><i class="fas fa-tag"></i>Tag</button>
+          <button class="btn-filled btn-light"><i class="fas fa-tag"></i>Tag</button>
+        </div>
+        <div class="additional-product-info">
+          <div class="upc">
+          <h4>UPC</h4>
+          <p><%= @product.UPC %></p>
+          </div>
+          <div class="size">
+          <h4>Size</h4>
+          <p><%= @product.size %></p>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
+
+
+
+ 
 

@@ -1,0 +1,17 @@
+.btn-filled{
+  background-color: $dark-green;
+  border-radius: 60px;
+  color: white;
+  padding: 8px 38px;
+  border-style: none;
+}
+
+.btn-light {
+  background-color: #E8FFEB !important;
+  color: #58B660 !important;
+  width: 150px;
+  text-align: center;
+  i {
+    color: #58B660;
+  }
+}

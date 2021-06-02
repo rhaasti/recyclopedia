@@ -5,7 +5,10 @@
   <% @products.each do |product|%>
 
   <div class="index-cards">
+
     <div class="card" style="width: 275px;">
+    <%= link_to product_path(product), class:"link" do %>
+      <%# <%= cl_image_tag @product.photo, crop: :fill, class: "card-img-top" %> %>
       <img class="card-img-top" src="https://source.unsplash.com/random" alt="Card image cap" height="150px">
       <div class="card-body">
         <h5 class="card-title"> <%= product.description %> </h5>
@@ -17,7 +20,7 @@
         </div>
       </div>
     </div>
-
+   <% end %>
   <% end %>
 
   </div>
@@ -25,4 +28,3 @@
     <%= link_to "Back to home", root_path, class:"btn btn-dark" %>
   </div>
 </div>
-
