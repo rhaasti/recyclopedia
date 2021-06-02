@@ -1,0 +1,6 @@
+<h1> <%= @product.description %> <h2>
+<p> <%= @product.UPC %></p>
+<p> <%= @product.size %></p>
+ <% @product.product_materials.each do |product|%>
+  <li><%= product.material.description %></li>
+  <% end %>
