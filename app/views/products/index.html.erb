@@ -1,0 +1,57 @@
+<h1>Results:</h1>
+
+<div class="container">
+  <h2> <%= Product.count %> relevant products </h2>
+  <div class="index-cards">
+    <div class="card" style="width: 275px;">
+      <img class="card-img-top" src="https://source.unsplash.com/random" alt="Card image cap" height="150px">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <div class="card-additional-info">
+          <p>Curbside ✓</p>
+          <%= link_to bookmarks_path, class:"dark-green" do%>
+            <i class="far fa-bookmark"></i>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="card" style="width: 275px;">
+      <img class="card-img-top" src="https://source.unsplash.com/random" alt="Card image cap" height="150px">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <div class="card-additional-info">
+          <p>Curbside ✓</p>
+          <%= link_to bookmarks_path, class:"dark-green" do%>
+            <i class="far fa-bookmark"></i>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="card" style="width: 275px;">
+      <img class="card-img-top" src="https://source.unsplash.com/random" alt="Card image cap" height="150px">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <div class="card-additional-info">
+          <p>Curbside ✓</p>
+          <%= link_to bookmarks_path, class:"dark-green" do%>
+            <i class="far fa-bookmark"></i>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="card" style="width: 275px;">
+      <img class="card-img-top" src="https://source.unsplash.com/random" alt="Card image cap" height="150px">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <div class="card-additional-info">
+          <p>Curbside ✓</p>
+          <%= link_to bookmarks_path, class:"dark-green" do%>
+            <i class="far fa-bookmark"></i>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <%= link_to "Back to home", root_path, class:"btn btn-dark" %>
