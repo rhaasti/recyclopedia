@@ -20,4 +20,7 @@
 .logo-dark-green{
   color: $dark-green;
   font: bold 20px Lora, serif;
+  &:hover{
+    color: $green;
+  }
 }
