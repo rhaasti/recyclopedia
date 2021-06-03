@@ -4,8 +4,8 @@ class Product < ApplicationRecord
   has_one_attached :photo
 
   include PgSearch::Model
-  pg_search_scope :search_by_upc,
-    against: [ :UPC ],
+  pg_search_scope :search_by_upc_or_description,
+    against: [ :UPC, :description ],
     using: {
       tsearch: { prefix: true } # <-- now `superman batm` will return something!
     }

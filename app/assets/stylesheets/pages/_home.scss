@@ -2,6 +2,9 @@
 body{
   color: $light-black;
   background-color: white;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 .header{
   padding-top: 40px;
@@ -55,6 +58,7 @@ a:hover{
   background-color: $bg-gray;
 }
 footer{
+  margin-top: auto;
   background-color: $dark-green;
   .white-text{
     color: white;

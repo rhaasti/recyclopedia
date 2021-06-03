@@ -7,8 +7,8 @@
   <!-- controller if this value buscar  -->
   <div class="justify-content-between w-400">
     <%= form_tag products_path, method: :get do %>
-    <%= text_field_tag :upc,
-      params[:upc],
+    <%= text_field_tag :query,
+      params[:query],
       class: "form-control",
       placeholder: "Coke can or 54657678948"
     %>
