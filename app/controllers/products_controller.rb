@@ -39,5 +39,13 @@ class ProductsController < ApplicationController
     result_serialized = URI.open(program_url).read
     result = JSON.parse(result_serialized)
     programs = result["result"]
+    return programs
+    # @markers = programs.geocoded.map do |program|
+    #   @markers =
+    #     {
+    #       lat: program.latitude,
+    #       lng: program.longitude
+    #     }
+    #   end
   end
 end
