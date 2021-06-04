@@ -17,12 +17,17 @@
         <li><%= product.material.description %> — <%= product.material.long_description %></li>
         <% end %>
         </p>
+       <% family_description = [] %>
         <div class="tags">
           <% @product.product_materials.each do |product|%>
             <% product.material.material_material_families.each do |family| %>
-            <button class="tag"><i class="fas fa-tag pr-2"></i><%= family.material_family.description %></button>
+              <% family_description.push(family.material_family.description) %>
             <% end %>
           <% end %>
+       <% family_description = family_description.uniq %>
+            <% family_description.each do |description| %>
+               <button class="tag"><i class="fas fa-tag pr-2"></i><%= description %></button>
+            <% end %>
         </div>
         <div class="additional-product-info">
           <div class="upc">
@@ -49,7 +54,7 @@
   </div>
   <div class="py-5">
     <%= link_to "Back to products", products_path, class:"btn-terciary" %>
-    <!-- <i class="fas fa-arrow-left"></i> -->
+    <!-- <i class="fas fa-arrow-left"></i>
   </div>
 </div>
 
