@@ -14,10 +14,13 @@ class ProductsController < ApplicationController
     # @programs = 
     #2. iterate thru array long/lat of each program
     # @markers = @programs.geocoded.map do |program|
-    #   {
-    #     lat: program.latitude,
-    #     lng: program.longitude
-    #   }
+    @markers =
+      {
+        lat: 40.71,
+        lng: 74
+        # lat: program.latitude,
+        # lng: program.longitude
+      }
     # end
     #3. display on map
   end
