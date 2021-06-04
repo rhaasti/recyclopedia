@@ -1,17 +1,40 @@
 .btn-filled{
   background-color: $dark-green;
+  font-weight: lighter;
+  font-size:15px;
   border-radius: 60px;
   color: white;
   padding: 8px 38px;
   border-style: none;
+  &:hover{
+  background-color: #14621c;
+  color: white;
+  }
 }
-
-.btn-light {
-  background-color: #E8FFEB !important;
-  color: #58B660 !important;
-  width: 150px;
-  text-align: center;
-  i {
-    color: #58B660;
+.btn-terciary{
+  color: $dark-green;
+  &:hover{
+    color: $green;
+    text-decoration: underline !important;
+  }
+}
+i{
+  color: $dark-green;
+  &:hover{
+    color: $green;
+  }
+}
+.tag{
+  font-size: 14px;
+  background-color: #E8FFEB;
+  color: $green;
+  border-radius: 60px;
+  border-style: none;
+  padding: 8px 24px;
+  i{
+   color: $green;
+  }
+  &:hover{
+    background-color: #e0f8e4;
   }
 }
