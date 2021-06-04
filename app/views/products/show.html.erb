@@ -18,8 +18,11 @@
         <% end %>
         </p>
         <div class="tags">
-          <button class="tag"><i class="fas fa-tag pr-2"></i>Tag</button>
-          <button class="tag"><i class="fas fa-tag pr-2"></i>Tag</button>
+          <% @product.product_materials.each do |product|%>
+            <% product.material.material_material_families.each do |family| %>
+            <button class="tag"><i class="fas fa-tag pr-2"></i><%= family.material_family.description %></button>
+            <% end %>
+          <% end %>
         </div>
         <div class="additional-product-info">
           <div class="upc">
