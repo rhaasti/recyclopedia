@@ -52,7 +52,9 @@
 
 # puts "...created #{Product.count} products, #{Material.count} materials, and #{ProductMaterial.count} product/material pairings"
 
+MaterialMaterialFamily.destroy_all
 ProductMaterial.destroy_all
+MaterialFamily.destroy_all
 Product.destroy_all
 Material.destroy_all
 
@@ -60,6 +62,8 @@ puts "...clean database"
 
 require "json"
 require "open-uri"
+
+puts "...creating materials"
 
 url = "https://api.earth911.com/earth911.getMaterials?api_key=5b7412cae7282842"
 result_serialized = URI.open(url).read
@@ -72,6 +76,43 @@ materials.each do |material|
 end
 
 puts "...created #{Material.count} materials"
+
+puts "...creating material families"
+
+url = "https://api.earth911.com/earth911.getFamilies?api_key=5b7412cae7282842"
+result_serialized = URI.open(url).read
+result = JSON.parse(result_serialized)
+
+families = result["result"]
+
+families.each do |family|
+  MaterialFamily.create(external_id:family["family_id"],description:family["description"])
+end
+
+puts "...created #{MaterialFamily.count} material families"
+
+puts "...creating material / family pairings"
+
+url = "https://api.earth911.com/earth911.getFamilies?api_key=5b7412cae7282842"
+result_serialized = URI.open(url).read
+result = JSON.parse(result_serialized)
+
+families = result["result"]
+
+families.each do |family|
+  material_family = MaterialFamily.find_by(external_id: family["family_id"]) #spacing
+  array = family["material_ids"]
+  unless array.nil?
+    array.each do |material|
+      found_material = Material.find_by(external_id: material)
+      if found_material && material_family
+          MaterialMaterialFamily.create(material_family_id: material_family.id,material_id: found_material.id)
+      end
+    end
+  end
+end
+
+puts "...created #{MaterialMaterialFamily.count} material / family pairings"
 
 1.times do
   file = URI.open("https://images-na.ssl-images-amazon.com/images/I/81wt8S28PNS._SL1500_.jpg")
