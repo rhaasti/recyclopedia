@@ -1,11 +1,14 @@
 .btn-filled{
   background-color: $dark-green;
+  font-weight: lighter;
+  font-size:15px;
   border-radius: 60px;
   color: white;
   padding: 8px 38px;
   border-style: none;
   &:hover{
   background-color: #14621c;
+  color: white;
   }
 }
 .btn-terciary{
