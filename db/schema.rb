@@ -10,7 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
+
 ActiveRecord::Schema.define(version: 2021_06_04_003019) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,6 +52,22 @@ ActiveRecord::Schema.define(version: 2021_06_04_003019) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_lists_on_user_id"
+  end
+
+  create_table "material_families", force: :cascade do |t|
+    t.string "description"
+    t.string "external_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "material_material_families", force: :cascade do |t|
+    t.bigint "material_family_id", null: false
+    t.bigint "material_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["material_family_id"], name: "index_material_material_families_on_material_family_id"
+    t.index ["material_id"], name: "index_material_material_families_on_material_id"
   end
 
   create_table "materials", force: :cascade do |t|
@@ -95,6 +114,8 @@ ActiveRecord::Schema.define(version: 2021_06_04_003019) do
   add_foreign_key "bookmarks", "lists"
   add_foreign_key "bookmarks", "products"
   add_foreign_key "lists", "users"
+  add_foreign_key "material_material_families", "material_families"
+  add_foreign_key "material_material_families", "materials"
   add_foreign_key "product_materials", "materials"
   add_foreign_key "product_materials", "products"
 end
