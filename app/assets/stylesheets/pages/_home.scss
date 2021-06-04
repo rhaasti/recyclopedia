@@ -2,6 +2,9 @@
 body{
   color: $light-black;
   background-color: white;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 .header{
   padding-top: 40px;
@@ -13,6 +16,7 @@ h1{
 h3{
   font-weight: 700;
 }
+
 .home-heading{
   padding-top: 40px;
 }
@@ -30,16 +34,6 @@ a:hover{
   color: $green;
 }
 
-.btn-filled{
-  background-color: $dark-green;
-  border-radius: 60px;
-  color: white;
-  padding: 8px 38px;
-  border-style: none;
-}
-.btn-filled:hover{
-  background-color: #14621c;
-}
 .form-control{
   border-radius: 60px;
 }
@@ -55,6 +49,7 @@ a:hover{
   background-color: $bg-gray;
 }
 footer{
+  margin-top: auto;
   background-color: $dark-green;
   .white-text{
     color: white;

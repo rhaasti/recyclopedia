@@ -4,14 +4,22 @@
 </div>
 <div class="container col-6">
   <!-- find out how to replace word search with icon -->
-  <%= form_tag products_path, method: :get do %>
-  <%= text_field_tag :upc,
-    params[:upc],
-    class: "form-control",
-    placeholder: "Coke can or 54657678948"
-  %>
-  <%= submit_tag "Search", class: "btn-filled" %>
-<% end %>
+  <!-- controller if this value buscar  -->
+  <div class="justify-content-between w-400">
+    <%= form_tag products_path, method: :get do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "Coke can or 54657678948"
+    %>
+    <%= text_field_tag :zipcode,
+      params[:zipcode],
+      class: "form-control",
+      placeholder: "123456"
+    %>
+    <%= submit_tag "Search", class: "btn-filled" %>
+    <% end %>
+  </div>
 </div>
 <div class="container text-center home-image">
   <%= cl_image_tag("undraw_takeout_boxes",
