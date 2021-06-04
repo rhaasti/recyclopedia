@@ -12,18 +12,18 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
-
     
     #1. call search locations method to retrieve hash of long/lat of programs
-    @programs = get_programs
     #2. iterate thru array long/lat of each program
+
+    @programs = get_programs
     @markers = @programs.geocoded.map do |program|
-    @markers =
-      {
-        lat: program.latitude,
-        lng: program.longitude
-      }
-    end
+      @markers =
+        {
+          lat: program.latitude,
+          lng: program.longitude
+        }
+      end
     #3. display on map
   end
 
@@ -38,5 +38,6 @@ class ProductsController < ApplicationController
     program_url = "https://api.earth911.com/earth911.searchPrograms?api_key=5b7412cae7282842&latitude=#{lat}&longitude=#{lng}"
     result_serialized = URI.open(program_url).read
     result = JSON.parse(result_serialized)
+    programs = result["result"]
   end
 end
