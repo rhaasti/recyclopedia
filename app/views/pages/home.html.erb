@@ -40,15 +40,26 @@
   </div>
   <div class="container pb-5">
     <div class="cards">
-      <div class="card-category">
-        <%= link_to "Plastic", "#{search_by_material_products_path}?material=plastic" %>
-      </div>
-      <div class="card-category">
-        <%= link_to "Glass", "#{search_by_material_products_path}?material=glass" %>
-      </div>
-      <div class="card-category">
-        <%= link_to "Paper", "#{search_by_material_products_path}?material=paper" %>
-      </div>
+      <%= link_to "#{search_by_material_products_path}?material=plastic" do %>
+        <div class="card-category">
+          <%= cl_image_tag("plastic_svg", width: 60) %>
+          <p>Plastic</p>
+        </div>
+      <% end %>
+
+      <%= link_to "#{search_by_material_products_path}?material=glass" do %>
+        <div class="card-category">
+          <%= cl_image_tag("glass_svg", width: 60) %>
+          <p>Glass</p>
+        </div>
+      <% end %>
+
+      <%= link_to "#{search_by_material_products_path}?material=paper" do %>
+        <div class="card-category">
+          <%= cl_image_tag("paper_svg", width: 60) %>
+          <p>Paper</p>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
