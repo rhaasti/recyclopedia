@@ -6,7 +6,7 @@
 
       <div class="card-product">
       <%= link_to product_path(product), class:"link-product" do %>
-        <img class="" src="https://source.unsplash.com/random" alt="Card image cap">
+        <%= cl_image_tag product.photo.key, crop: :fill %>
         <div class="wrap-info">
 
           <div class="product-description">
