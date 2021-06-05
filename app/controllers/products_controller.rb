@@ -1,12 +1,13 @@
 class ProductsController < ApplicationController
   require "json"
   require "open-uri"
+  skip_before_action :authenticate_user!, except: [:lists]
 
   def index
     if params[:query].present?
       @products = Product.search_by_upc_or_description(params[:query])
     else
-      @products = Product.all
+      @products = Product.includes(:materials)
     end
   end
 
