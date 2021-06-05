@@ -1,0 +1,23 @@
+.form-control{
+  border-radius: 60px;
+}
+.form-control::-webkit-input-placeholder {
+  color: #bbb;
+  font: lighter 14px Nunito, serif;
+  // text-indent: 14px;
+  // padding-left: 14px;
+}
+ // navbar partial search bar
+ #search-icon{
+  position: absolute;
+  z-index: 1;
+  top: 11px;
+  left: 16px;
+  color: #bbb;
+}
+.search-bar{
+  position:relative;
+}
+.pl-5 {
+  padding-left: ($spacer * 2.5) !important;
+}
