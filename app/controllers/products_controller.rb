@@ -38,7 +38,7 @@ class ProductsController < ApplicationController
         }
 
     end
-    raise
+    # raise
   end
 
   private
@@ -61,6 +61,6 @@ class ProductsController < ApplicationController
   def get_program_info(program_id)
     url = "https://api.earth911.com/earth911.getProgramDetails?api_key=5b7412cae7282842&program_id=#{program_id}"
     result = JSON.parse(URI.open(url).read)["result"]
-    program_info = { description: result[program_id]["description"], hours: result[program_id]["hours"], phone: result[program_id]["phone"], notes: result[program_id]["notes_public"], curbside: result[program_id]["curbside"] }
+    @program_info = { description: result[program_id]["description"], hours: result[program_id]["hours"], phone: result[program_id]["phone"], notes: result[program_id]["notes_public"], curbside: result[program_id]["curbside"] }
   end
 end

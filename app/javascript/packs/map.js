@@ -18,7 +18,7 @@ const initMapbox = () => {
     });
     
     const markers = JSON.parse(mapElement.dataset.markers);
-    const programs = JSON.parse(mapElement.dataset.programs);
+    // const programs = JSON.parse(mapElement.dataset.programs);
 
     markers.forEach((marker) => {
 
