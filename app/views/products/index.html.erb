@@ -1,5 +1,5 @@
 <div class="container py-5">
-  <h3 class="py-5"> <%= Product.count %> relevant products </h3>
+  <h3 class="py-5"> <%= @products.count %> relevant products </h3>
 
   <div class="product-grid">
     <% @products.each do |product|%>
