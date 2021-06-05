@@ -89,6 +89,15 @@ families.each do |family|
   MaterialFamily.create(external_id:family["family_id"],description:family["description"])
 end
 
+delete_family1 = MaterialFamily.find_by(external_id: "108")
+delete_family1.destroy
+
+delete_family2 = MaterialFamily.find_by(external_id: "106")
+delete_family2.destroy
+
+delete_family3 = MaterialFamily.find_by(external_id: "81")
+delete_family3.destroy
+
 puts "...created #{MaterialFamily.count} material families"
 
 puts "...creating material / family pairings"
@@ -118,7 +127,7 @@ puts "...created #{MaterialMaterialFamily.count} material / family pairings"
   file = URI.open("https://images-na.ssl-images-amazon.com/images/I/81wt8S28PNS._SL1500_.jpg")
   new_product = Product.create(description:"Hawaiian Punch Fruit Juicy Red", size:"10 Fluid Ounce Bottle", UPC:Faker::Barcode.upc_a)
   new_product.photo.attach(io: file, filename: 'product.png', content_type: 'image/png')
-  pair_material = ["65","104"]
+  pair_material = ["60","619", "40"]
     pair_material.each do |external_id|
       material = Material.find_by(external_id: external_id)
       ProductMaterial.create(product_id:new_product.id,material_id:material.id)
@@ -129,7 +138,7 @@ puts "...created #{MaterialMaterialFamily.count} material / family pairings"
   file = URI.open("https://images-na.ssl-images-amazon.com/images/I/91nisFfx94L._SL1500_.jpg")
   new_product = Product.create(description:"Quaker Oats Quick 1-Minute Oatmeal", size:"18oz Canisters", UPC:Faker::Barcode.upc_a)
   new_product.photo.attach(io: file, filename: 'product.png', content_type: 'image/png')
-  pair_material = ["70","306"]
+  pair_material = ["411","619"]
     pair_material.each do |external_id|
       material = Material.find_by(external_id: external_id)
       ProductMaterial.create(product_id:new_product.id,material_id:material.id)
@@ -140,7 +149,7 @@ puts "...created #{MaterialMaterialFamily.count} material / family pairings"
   file = URI.open("https://images-na.ssl-images-amazon.com/images/I/81FG-Ru44aL._SL1500_.jpg")
   new_product = Product.create(description:"Fage, Total 2%\ Yogurt", size:"35.3 Ounce", UPC:Faker::Barcode.upc_a)
   new_product.photo.attach(io: file, filename: 'product.png', content_type: 'image/png')
-  pair_material = ["66","577"]
+  pair_material = ["466"]
     pair_material.each do |external_id|
       material = Material.find_by(external_id: external_id)
       ProductMaterial.create(product_id:new_product.id,material_id:material.id)
@@ -149,9 +158,9 @@ end
 
 1.times do
   file = URI.open("https://images-na.ssl-images-amazon.com/images/I/813UygtWF-L._SL1500_.jpg")
-  new_product = Product.create(description:"Coca-Cola", size:"12 oz", UPC:Faker::Barcode.upc_a)
+  new_product = Product.create(description:"Coca-Cola 12-pack", size:"12 oz", UPC:Faker::Barcode.upc_a)
   new_product.photo.attach(io: file, filename: 'product.png', content_type: 'image/png')
-  pair_material = ["1","134"]
+  pair_material = ["70","42"]
     pair_material.each do |external_id|
       material = Material.find_by(external_id: external_id)
       ProductMaterial.create(product_id:new_product.id,material_id:material.id)
@@ -162,7 +171,7 @@ end
   file = URI.open("https://images-na.ssl-images-amazon.com/images/I/81gJfkzwjnL._SL1500_.jpg")
   new_product = Product.create(description:"Driscoll's Berry Big Strawberries", size:"18 oz", UPC:Faker::Barcode.upc_a)
   new_product.photo.attach(io: file, filename: 'product.png', content_type: 'image/png')
-  pair_material = ["8","340"]
+  pair_material = ["625", "447"]
     pair_material.each do |external_id|
       material = Material.find_by(external_id: external_id)
       ProductMaterial.create(product_id:new_product.id,material_id:material.id)
@@ -173,7 +182,7 @@ end
   file = URI.open("https://images-na.ssl-images-amazon.com/images/I/81BPIb8FD8L._SL1500_.jpg")
   new_product = Product.create(description:"Oatly Original Oat Milk", size:"64 oz", UPC:Faker::Barcode.upc_a)
   new_product.photo.attach(io: file, filename: 'product.png', content_type: 'image/png')
-  pair_material = ["100","101","93"]
+  pair_material = ["411","619"]
     pair_material.each do |external_id|
       material = Material.find_by(external_id: external_id)
       ProductMaterial.create(product_id:new_product.id,material_id:material.id)
@@ -184,7 +193,7 @@ end
   file = URI.open("https://images-na.ssl-images-amazon.com/images/I/71jvnaMaPZL._SL1500_.jpg")
   new_product = Product.create(description:"Grade A Milk", size:"128 Fl Oz", UPC:Faker::Barcode.upc_a)
   new_product.photo.attach(io: file, filename: 'product.png', content_type: 'image/png')
-  pair_material = ["450","448","73"]
+  pair_material = ["62","619"]
     pair_material.each do |external_id|
       material = Material.find_by(external_id: external_id)
       ProductMaterial.create(product_id:new_product.id,material_id:material.id)
@@ -195,7 +204,7 @@ end
   file = URI.open("https://images-na.ssl-images-amazon.com/images/I/81N4kw-uzgL._SL1500_.jpg")
   new_product = Product.create(description:"Tim Hortons Original Blend", size:"48 Ounce Canister", UPC:Faker::Barcode.upc_a)
   new_product.photo.attach(io: file, filename: 'product.png', content_type: 'image/png')
-  pair_material = ["76","44","599"]
+  pair_material = ["435","619"]
     pair_material.each do |external_id|
       material = Material.find_by(external_id: external_id)
       ProductMaterial.create(product_id:new_product.id,material_id:material.id)
@@ -206,7 +215,7 @@ end
   file = URI.open("https://images-na.ssl-images-amazon.com/images/I/71SVj6jT1LL._AC_SL1500_.jpg")
   new_product = Product.create(description:"Sealed Lead Acid Rechargeable Battery", size:"12V 35Ah", UPC:Faker::Barcode.upc_a)
   new_product.photo.attach(io: file, filename: 'product.png', content_type: 'image/png')
-  pair_material = ["107","104","93","95"]
+  pair_material = ["4", "368"]
     pair_material.each do |external_id|
       material = Material.find_by(external_id: external_id)
       ProductMaterial.create(product_id:new_product.id,material_id:material.id)
@@ -217,16 +226,93 @@ end
   file = URI.open("https://images-na.ssl-images-amazon.com/images/I/8100M6%2BG2qL._SL1500_.jpg")
   new_product = Product.create(description:"Happy Belly California Walnuts", size:"40 Ounce", UPC:Faker::Barcode.upc_a)
   new_product.photo.attach(io: file, filename: 'product.png', content_type: 'image/png')
-  pair_material = ["222","345","121"]
+  pair_material = ["583"]
     pair_material.each do |external_id|
       material = Material.find_by(external_id: external_id)
       ProductMaterial.create(product_id:new_product.id,material_id:material.id)
     end
 end
 
+1.times do
+  file = URI.open("https://images-na.ssl-images-amazon.com/images/I/71qYSTnXCvL._AC_SL1500_.jpg")
+  new_product = Product.create(description:"Purina One Natural Wet Cat Food", size:"3 oz. cans", UPC:Faker::Barcode.upc_a)
+  new_product.photo.attach(io: file, filename: 'product.png', content_type: 'image/png')
+  pair_material = ["435"]
+    pair_material.each do |external_id|
+      material = Material.find_by(external_id: external_id)
+      ProductMaterial.create(product_id:new_product.id,material_id:material.id)
+    end
+end
+
+1.times do
+  file = URI.open("https://images-na.ssl-images-amazon.com/images/I/71Rfcmf2p6L._SL1446_.jpg")
+  new_product = Product.create(description:"Frito Lay Potato Chips", size:"7.75oz Bag", UPC:Faker::Barcode.upc_a)
+  new_product.photo.attach(io: file, filename: 'product.png', content_type: 'image/png')
+  pair_material = ["583"]
+    pair_material.each do |external_id|
+      material = Material.find_by(external_id: external_id)
+      ProductMaterial.create(product_id:new_product.id,material_id:material.id)
+    end
+end
+
+1.times do
+  file = URI.open("https://images-na.ssl-images-amazon.com/images/I/517cJC1ys7L._AC_SL1024_.jpg")
+  new_product = Product.create(description:"Lodge Pre-Seasoned Cast Iron Skillet", size:"10.25 inch diameter", UPC:Faker::Barcode.upc_a)
+  new_product.photo.attach(io: file, filename: 'product.png', content_type: 'image/png')
+  pair_material = ["388"]
+    pair_material.each do |external_id|
+      material = Material.find_by(external_id: external_id)
+      ProductMaterial.create(product_id:new_product.id,material_id:material.id)
+    end
+end
+
+1.times do
+  file = URI.open("https://images-na.ssl-images-amazon.com/images/I/71vR9M3xZNL._AC_SL1500_.jpg")
+  new_product = Product.create(description:"Valvoline Multi-Vehicle Antifreeze/Coolant", size:"1 gallon", UPC:Faker::Barcode.upc_a)
+  new_product.photo.attach(io: file, filename: 'product.png', content_type: 'image/png')
+  pair_material = ["3"]
+    pair_material.each do |external_id|
+      material = Material.find_by(external_id: external_id)
+      ProductMaterial.create(product_id:new_product.id,material_id:material.id)
+    end
+end
+
+1.times do
+  file = URI.open("https://images-na.ssl-images-amazon.com/images/I/71QSY%2BGchOL._SL1500_.jpg")
+  new_product = Product.create(description:"Heavy Duty Aluminum Foil", size:"300 sq feet", UPC:Faker::Barcode.upc_a)
+  new_product.photo.attach(io: file, filename: 'product.png', content_type: 'image/png')
+  pair_material = ["235"]
+    pair_material.each do |external_id|
+      material = Material.find_by(external_id: external_id)
+      ProductMaterial.create(product_id:new_product.id,material_id:material.id)
+    end
+end
+
+1.times do
+  file = URI.open("https://images-na.ssl-images-amazon.com/images/I/41lMGrajEOL._AC_.jpg")
+  new_product = Product.create(description:"Duracell - CopperTop AA Alkaline Batteries", size:"28 pack", UPC:Faker::Barcode.upc_a)
+  new_product.photo.attach(io: file, filename: 'product.png', content_type: 'image/png')
+  pair_material = ["104", "42"]
+    pair_material.each do |external_id|
+      material = Material.find_by(external_id: external_id)
+      ProductMaterial.create(product_id:new_product.id,material_id:material.id)
+    end
+end
+
+1.times do
+  file = URI.open("https://images-na.ssl-images-amazon.com/images/I/81LFgedBa9L._SL1500_.jpg")
+  new_product = Product.create(description:"Ocean Spray Juice Boxes", size:"4.2oz", UPC:Faker::Barcode.upc_a)
+  new_product.photo.attach(io: file, filename: 'product.png', content_type: 'image/png')
+  pair_material = ["236"]
+    pair_material.each do |external_id|
+      material = Material.find_by(external_id: external_id)
+      ProductMaterial.create(product_id:new_product.id,material_id:material.id)
+    end
+end
+
+
 puts "...created #{Product.count} products"
 puts "...created #{ProductMaterial.count} product / material pairings"
-
 
 
 
