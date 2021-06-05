@@ -41,13 +41,13 @@
   <div class="container pb-5">
     <div class="cards">
       <div class="card-category">
-        Plastic
+        <%= link_to "Plastic", "#{search_by_material_products_path}?material=plastic" %>
       </div>
       <div class="card-category">
-        Glass
+        <%= link_to "Glass", "#{search_by_material_products_path}?material=glass" %>
       </div>
       <div class="card-category">
-        Paper
+        <%= link_to "Paper", "#{search_by_material_products_path}?material=paper" %>
       </div>
     </div>
   </div>
