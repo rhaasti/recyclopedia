@@ -6,6 +6,7 @@ class ProductsController < ApplicationController
   def index
     if params[:query].present?
       @products = Product.search_by_upc_or_description(params[:query])
+      @temporal_zipcode = TemporalZipcode.create(zipcode: params[:zipcode])
     else
       @products = Product.includes(:materials)
     end
@@ -14,10 +15,9 @@ class ProductsController < ApplicationController
   def show
     @product = Product.find(params[:id])
     
-    #1. call search locations method to retrieve hash of long/lat of programs
-    #2. iterate thru array long/lat of each program
-
-    @programs = get_programs
+    @zipcode = params[:zipcode] 
+    @programs = get_programs(@zipcode)
+    #render error page if no zipcode
     @markers = @programs.geocoded.map do |program|
       @markers =
         {
@@ -29,8 +29,8 @@ class ProductsController < ApplicationController
   end
 
   private
-  def get_programs
-    url = "https://api.earth911.com/earth911.getPostalData?api_key=5b7412cae7282842&country=us&postal_code=#{current_user.zip_code}"
+  def get_programs(zipcode)
+    url = "https://api.earth911.com/earth911.getPostalData?api_key=5b7412cae7282842&country=us&postal_code=#{zipcode}"
     result_serialized = URI.open(url).read
     result = JSON.parse(result_serialized)
     lat = result["result"]["latitude"]

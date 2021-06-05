@@ -5,7 +5,7 @@
     <% @products.each do |product|%>
 
       <div class="card-product">
-      <%= link_to product_path(product), class:"link-product" do %>
+      <%= link_to product_path(product, zipcode: params[:zipcode]), class:"link-product" do %>
         <img class="" src="https://source.unsplash.com/random" alt="Card image cap">
         <div class="wrap-info">
 
