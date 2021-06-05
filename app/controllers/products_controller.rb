@@ -41,7 +41,21 @@ class ProductsController < ApplicationController
     # raise
   end
 
+  def search_by_material
+    # Find products by material
+      # Product.joins(product_materials: :material)
+      # Product.joins(product_materials: [material: :material_material_families])
+      # Product.joins(product_materials: [material: [material_material_families: :material_family]])
+    # TO DO: validate params
+    @products = Product.joins(product_materials:
+      [material: [material_material_families: :material_family]]).where("material_families.description ILIKE ?",
+      "%#{params[:material]}%")
+
+    render "index"
+  end
+
   private
+
   def zipcode_to_coordinates(zipcode)
     url = "https://api.earth911.com/earth911.getPostalData?api_key=5b7412cae7282842&country=us&postal_code=#{zipcode}"
     result_serialized = URI.open(url).read
@@ -49,7 +63,7 @@ class ProductsController < ApplicationController
     @lat = result["result"]["latitude"]
     @lng = result["result"]["longitude"]
   end
-  
+
   def get_programs(material_ids)
     zipcode_to_coordinates(@zipcode)
     program_url = "https://api.earth911.com/earth911.searchPrograms?api_key=5b7412cae7282842&latitude=#{@lat}&longitude=#{@lng}&material_ids=#{material_ids}"
