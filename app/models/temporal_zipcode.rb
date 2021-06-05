@@ -1,0 +1,2 @@
+class TemporalZipcode < ApplicationRecord
+end
