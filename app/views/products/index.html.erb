@@ -1,12 +1,14 @@
 <div class="container py-5">
-  <h3 class="py-5"> <%= Product.count %> relevant products </h3>
+  <h3 class="py-5"> <%= @products.count %> relevant products </h3>
 
   <div class="product-grid">
     <% @products.each do |product|%>
 
       <div class="card-product">
-      <%= link_to product_path(product), class:"link-product" do %>
-        <img class="" src="https://source.unsplash.com/random" alt="Card image cap">
+
+      <%= link_to product_path(product, zipcode: params[:zipcode]), class:"link-product" do %>
+        <%= cl_image_tag product.photo.key, crop: :fill %>
+
         <div class="wrap-info">
 
           <div class="product-description">

@@ -1,19 +1,26 @@
 .card-category {
-  height: 180px;
+  height: 144px;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: $dark-green;
-  font-size: 24px;
+  font-size: 20px;
   font-weight: bold;
   border-radius: 8px;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  background-color: white;
+  p{
+    color: $dark-green !important;
+    padding-left: 10px;
+    margin: 0;
+  }
+  &:hover {
+    box-shadow: rgba(99, 99, 99, 0.4) 0px 2px 8px 0px;
+  }
 }
 .cards {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 50px;
-  background-color: white;
+  grid-gap: 80px;
 }
 
 // Smallest device
@@ -51,7 +58,7 @@
   }
 }
 
-// index page
+// Index page for products
 .product-grid{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
