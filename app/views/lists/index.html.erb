@@ -1,0 +1,4 @@
+<h1><%= current_user.first_name %>'s lists </h1>
+<p> <% @lists.each do |list| %> </p>
+  <l> <%= link_to list.name, list_path(list) %> </l>
+<% end %>

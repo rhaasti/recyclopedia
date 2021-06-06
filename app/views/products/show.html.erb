@@ -1,9 +1,8 @@
 <div class="container">
   <div class="title-box">
     <h3><%= @product.description %></h3>
-    <%= link_to bookmarks_path, class:"" do%>
-      <i class="fas fa-bookmark"></i>
-    <% end %>
+    <%= render "bookmarks/new" %>
+    <i class="fas fa-bookmark" data-toggle="modal" data-target="#exampleModal"></i>
   </div>
 
   <hr>
