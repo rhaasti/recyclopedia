@@ -7,9 +7,11 @@ Rails.application.routes.draw do
       get :search_by_material
     end
 
-    resources :lists, only: [:index, :show, :new, :create] do
-      resources :bookmarks, only: [:new, :create]
-    end
+    resources :bookmarks, only: [:new, :create]
+  end
+  
+  resources :lists, only: [:index, :show, :new, :create] do
+    resources :bookmarks, only: [:new, :create]
   end
 end
 
