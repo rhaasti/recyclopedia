@@ -18,14 +18,27 @@ class ProductsController < ApplicationController
     @zipcode = params[:zipcode]
     @programs = get_programs(@material_ids)
     #render error page if no zipcode
+  
     @markers = []
+    @program_ids = []
+    # @program_info_array = []
+
     @programs.each do |program|
+      @program_ids << program["program_id"]
+
+      # @program_ids.each do |program_id|
+      #   @program_info = get_program_info(program_id)
+      # end
+
       @markers <<
         {
           lat: program["latitude"],
-          lng: program["longitude"]
+          lng: program["longitude"],
+          info_window: render_to_string(partial: "info_window", locals: { program: get_program_info(program["program_id"]) } )
         }
+
     end
+    # raise
   end
 
   def search_by_material
@@ -57,5 +70,11 @@ class ProductsController < ApplicationController
     result_serialized = URI.open(program_url).read
     result = JSON.parse(result_serialized)
     programs = result["result"]
+  end
+
+  def get_program_info(program_id)
+    url = "https://api.earth911.com/earth911.getProgramDetails?api_key=5b7412cae7282842&program_id=#{program_id}"
+    result = JSON.parse(URI.open(url).read)["result"]
+    @program_info = { description: result[program_id]["description"], hours: result[program_id]["hours"], phone: result[program_id]["phone"], notes: result[program_id]["notes_public"], curbside: result[program_id]["curbside"] }
   end
 end
