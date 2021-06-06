@@ -23,5 +23,6 @@ class ProductsController < ApplicationController
       }
     # end
     #3. display on map
+    @bookmark = Bookmark.new
   end
 end
