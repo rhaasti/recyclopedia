@@ -13,11 +13,10 @@ h1{
   font-weight: 700;
   font-size: 3.5rem;
 }
-h3{
-  font-weight: 700;
-}
+
 .home-heading{
   padding-top: 40px;
+  color: white;
 }
 .head-text{
   color: $mid-grey;
@@ -34,16 +33,19 @@ a:hover{
 }
 .home-image{
   padding-top: 70px;
+  width: 900px;
 }
-.bg-gray{
-  background-color: $bg-gray;
+.bg-darkgreen{
+  background-color: $dark-green;
+  background: linear-gradient(140deg, rgba(22,101,21,1) 0%, rgba(16,81,23,1) 50%);
+  padding-bottom: 80px;
 }
 footer{
   margin-top: auto;
-  background-color: $dark-green;
-  .white-text{
-    color: white;
-  }
+  // background-color: $dark-green;
+  // .white-text{
+  //   color: white;
+  // }
 }
 .bi-question-circle{
   color: $green;
