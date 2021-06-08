@@ -52,6 +52,7 @@
 
 # puts "...created #{Product.count} products, #{Material.count} materials, and #{ProductMaterial.count} product/material pairings"
 
+Bookmark.destroy_all
 MaterialMaterialFamily.destroy_all
 ProductMaterial.destroy_all
 MaterialFamily.destroy_all
@@ -158,7 +159,7 @@ end
 
 1.times do
   file = URI.open("https://images-na.ssl-images-amazon.com/images/I/813UygtWF-L._SL1500_.jpg")
-  new_product = Product.create(description:"Coca-Cola 12-pack", size:"12 oz", UPC:Faker::Barcode.upc_a)
+  new_product = Product.create(description:"Coca-Cola 12-pack cans", size:"12 oz", UPC:Faker::Barcode.upc_a)
   new_product.photo.attach(io: file, filename: 'product.png', content_type: 'image/png')
   pair_material = ["70","42"]
     pair_material.each do |external_id|
@@ -304,6 +305,50 @@ end
   new_product = Product.create(description:"Ocean Spray Juice Boxes", size:"4.2oz", UPC:Faker::Barcode.upc_a)
   new_product.photo.attach(io: file, filename: 'product.png', content_type: 'image/png')
   pair_material = ["236"]
+    pair_material.each do |external_id|
+      material = Material.find_by(external_id: external_id)
+      ProductMaterial.create(product_id:new_product.id,material_id:material.id)
+    end
+end
+
+1.times do
+  file = URI.open("https://i5.walmartimages.com/asr/03bc78d2-4e19-481a-81f4-2d9a988f76c6.66b75a18f8167489c27b8f2267c64812.jpeg")
+  new_product = Product.create(description:"Coca-Cola 6-pack bottles", size:"12oz", UPC:Faker::Barcode.upc_a)
+  new_product.photo.attach(io: file, filename: 'product.png', content_type: 'image/png')
+  pair_material = ["77", "42"]
+    pair_material.each do |external_id|
+      material = Material.find_by(external_id: external_id)
+      ProductMaterial.create(product_id:new_product.id,material_id:material.id)
+    end
+end
+
+1.times do
+  file = URI.open("https://images-na.ssl-images-amazon.com/images/I/715H6OmNfRL._AC_SL1500_.jpg")
+  new_product = Product.create(description:"Organic Respiratory Health Liquid Drops", size:"1oz", UPC:Faker::Barcode.upc_a)
+  new_product.photo.attach(io: file, filename: 'product.png', content_type: 'image/png')
+  pair_material = ["76", "42"]
+    pair_material.each do |external_id|
+      material = Material.find_by(external_id: external_id)
+      ProductMaterial.create(product_id:new_product.id,material_id:material.id)
+    end
+end
+
+1.times do
+  file = URI.open("https://images-na.ssl-images-amazon.com/images/I/71RfLsC2a1L._SL1414_.jpg")
+  new_product = Product.create(description:"Saratoga Sparkling Water", size:"28oz", UPC:Faker::Barcode.upc_a)
+  new_product.photo.attach(io: file, filename: 'product.png', content_type: 'image/png')
+  pair_material = ["255"]
+    pair_material.each do |external_id|
+      material = Material.find_by(external_id: external_id)
+      ProductMaterial.create(product_id:new_product.id,material_id:material.id)
+    end
+end
+
+1.times do
+  file = URI.open("https://images-na.ssl-images-amazon.com/images/I/91MTJzmrBpL._AC_SL1500_.jpg")
+  new_product = Product.create(description:"Brawny Flex Paper Towels", size:"8 rolls", UPC:Faker::Barcode.upc_a)
+  new_product.photo.attach(io: file, filename: 'product.png', content_type: 'image/png')
+  pair_material = ["427"]
     pair_material.each do |external_id|
       material = Material.find_by(external_id: external_id)
       ProductMaterial.create(product_id:new_product.id,material_id:material.id)
