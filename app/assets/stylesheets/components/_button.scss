@@ -1,6 +1,6 @@
 .btn-filled{
   background-color: $dark-green;
-  background: linear-gradient(140deg, rgba(22,101,21,1) 0%, rgba(16,81,23,1) 50%);
+  background: linear-gradient(180deg, rgba(22,101,21,1) 0%, rgba(16,81,23,1) 50%);
   font-weight: lighter;
   font-size:15px;
   border-radius: 60px;
@@ -9,12 +9,14 @@
   border-style: none;
   &:hover{
   background-color: #14621c;
-  background: linear-gradient(140deg, #1b721a 0%, #115819 50%);
+  background: linear-gradient(180deg, #1b721a 0%, #115819 50%);
   color: white;
   }
 }
 .btn-terciary{
   color: $dark-green;
+  border-style: none;
+  background-color: none;
   &:hover{
     color: $green;
     text-decoration: underline !important;
