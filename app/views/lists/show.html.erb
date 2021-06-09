@@ -1,4 +1,10 @@
-<h2> your saved products </h2>
+<div class="container">
+    <h2><%= current_user.first_name %>'s lists </h2>
+    <hr>
+
+</div>
+
+<h2> Your saved products </h2>
 
 <%= @list.products.each do |product| %>
     <%= product %>
