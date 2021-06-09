@@ -17,6 +17,13 @@
     box-shadow: rgba(99, 99, 99, 0.4) 0px 2px 8px 0px;
   }
 }
+// HOME CARD MATERIALS
+.card-darkershadow{
+  box-shadow: rgba(17, 17, 26, 0.34) 0px 8px 24px, rgba(17, 17, 26, 0.34) 0px 16px 56px, rgba(17, 17, 26, 0.34) 0px 24px 80px;
+  &:hover {
+  box-shadow: rgba(17, 17, 26, 0.6) 0px 8px 24px, rgba(17, 17, 26, 0.6) 0px 16px 56px, rgba(17, 17, 26, 0.6) 0px 24px 80px;
+  }
+}
 .cards {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -103,17 +110,3 @@ padding: 16px;
   }
 }
 
-
-// .card {
-//   border-radius: 10px;
-// }
-
-// .card-img-top {
-//   border-top-left-radius: 10px;
-//   border-top-right-radius: 10px;
-// }
-
-// .card-additional-info {
-//   display: flex;
-//   justify-content: space-between;
-// }

@@ -2,7 +2,10 @@
   <div class="title-box">
     <h3><%= @product.description %></h3>
     <%= render "bookmarks/new" %>
-    <i class="fas fa-bookmark" data-toggle="modal" data-target="#exampleModal"></i>
+    <div class="btn-terciary">
+      Bookmark
+      <i class="fas fa-bookmark" data-toggle="modal" data-target="#exampleModal"></i>
+    </div>
   </div>
 
   <hr>
@@ -51,7 +54,7 @@
     data-markers="<%= @markers.to_json %>"
     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
-  <div class="py-5">
+  <div class="container py-5">
     <%= link_to "Back to products", products_path, class:"btn-terciary" %>
     <!-- <i class="fas fa-arrow-left"></i> -->
   </div>

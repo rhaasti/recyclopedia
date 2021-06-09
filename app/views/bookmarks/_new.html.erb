@@ -3,7 +3,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">save a product to a list</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Save product to a list</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -11,13 +11,15 @@
       <div class="modal-body">
 
       <%= simple_form_for [@product, @list, @bookmark] do |f| %>
-        <%= f.association :list %>
-        <%= f.button :submit %>
+        <%= f.association :list, label: 'Select a list' %>
+        <div class="form-actions text-center">
+          <%= f.button :submit, class: "btn-filled" %>
+         </div>
       <% end %>
 
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      <div class="modal-footer text-center">
+        <button type="button" class="btn-terciary">+ Create a new list</button>
       </div>
     </div>
   </div>
