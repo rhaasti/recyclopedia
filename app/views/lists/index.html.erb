@@ -1,22 +1,24 @@
 <div class="container">
   <div class="list-title">
-    <h1><%= current_user.first_name %>'s lists </h1>
-    <%= link_to new_list_path %>
+    <h2><%= current_user.first_name %>'s lists </h2>
+    <%= link_to "Create new list", new_list_path, class: "link" %>
   </div>
   <hr>
 
-  <div class="lists">
+  <div class="list-cards">
     <% @lists.each do |list| %> 
       <%= link_to list_path(list) do %>
-        <div class="card-product">
-          <%= cl_image_tag (list.products.first.photo.key) %>
-          <div class="card-product-infos">
-            <h2><%= list.name %></h2>
-          </div>
+        <div class="list-card">
+          <%= cl_image_tag (list.products.first.photo.key), width: 120, class: "list-card-img" if list.product_ids.length > 0 %>
+          <h2><%= list.name %></h2>
         </div>
       <% end %> 
     <% end %>
   </div>
+
+</div>
+
+
 </div>
 
 
