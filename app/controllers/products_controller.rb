@@ -15,7 +15,7 @@ class ProductsController < ApplicationController
   def show
     @product = Product.find(params[:id])
     #1. call search locations method to retrieve hash of long/lat of programs
-    # @programs = 
+    # @programs =
     #2. iterate thru array long/lat of each program
     # @markers = @programs.geocoded.map do |program|
     # end
@@ -26,7 +26,7 @@ class ProductsController < ApplicationController
     @zipcode = params[:zipcode]
     @programs = get_programs(@material_ids)
     #render error page if no zipcode
-  
+
     @markers = []
     @program_ids = []
     # @program_info_array = []
@@ -58,6 +58,7 @@ class ProductsController < ApplicationController
     @products = Product.joins(product_materials:
       [material: [material_material_families: :material_family]]).where("material_families.description ILIKE ?",
       "%#{params[:material]}%")
+    @products = @products.uniq
 
     render "index"
   end
