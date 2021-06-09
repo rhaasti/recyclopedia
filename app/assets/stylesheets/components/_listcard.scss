@@ -38,7 +38,7 @@
   border-bottom-left-radius: 10px;
 }
 
-.list-card h2 {
+.list-card h2, .list-card h4 {
   font-size: 25px;
   font-weight: bold;
   margin-left: 35px;
@@ -46,13 +46,6 @@
 }
 
 .list-card p {
-  font-size: 12px;
-  line-height: 1.4;
-  opacity: .7;
-  margin-bottom: 0;
-  margin-top: 8px;
-}
-
-.list-card .list-card-infos {
-  padding: 16px;
+  font-size: 16px;
+  margin-left: 35px;
 }

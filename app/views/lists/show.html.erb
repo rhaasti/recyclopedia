@@ -1,5 +1,23 @@
-<h2> your saved products </h2>
+<div class="container">
+  <h2><%= @list.name %></h2>
+  <hr>
+  
+    <div class="list-cards">
+        <% @list.products.each do |product| %>
+            <%= link_to product_path(product) do %>
+                <div class="list-card">
+                    <%= cl_image_tag (product.photo.key), class: "list-card-img" %>
+                    <div class="list-card-info">
+                        <h4><%= product.description %></h4>
+                    
+                        <p> Materials:</p>
+                        <% family_description = [] %>
+                    </div>
+                </div>
+          <% end %>
+        <% end %>
+    </div>
+</div>
 
-<%= @list.products.each do |product| %>
-    <%= product %>
-<% end %>
+
+
