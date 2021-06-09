@@ -58,7 +58,7 @@ class ProductsController < ApplicationController
     @products = Product.joins(product_materials:
       [material: [material_material_families: :material_family]]).where("material_families.description ILIKE ?",
       "%#{params[:material]}%")
-    @products = @products.uniq
+    @products = @products.uniq # or .distinct, test speed
 
     render "index"
   end

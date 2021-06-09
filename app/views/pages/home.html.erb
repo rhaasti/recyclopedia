@@ -22,7 +22,7 @@
       <%= text_field_tag :query,
         params[:query],
         class: "form-control form-product-field",
-        placeholder: "Coke can or 049000028904"
+        placeholder: "Coca Cola or 049000028904"
       %>
     </div>
     <!-- ENDS PRODUCT FIELD -->
@@ -56,13 +56,6 @@
   </div>
   <div class="container pb-5">
     <div class="cards">
-      <%= link_to "#{search_by_material_products_path}?material=plastic" do %>
-        <div class="card-category card-darkershadow">
-          <%= cl_image_tag("plastic_svg.svg", width: 60) %>
-          <p>Plastic</p>
-        </div>
-      <% end %>
-
       <%= link_to "#{search_by_material_products_path}?material=glass" do %>
         <div class="card-category card-darkershadow">
           <%= cl_image_tag("glass_svg.svg", width: 60) %>
@@ -70,10 +63,24 @@
         </div>
       <% end %>
 
+      <%= link_to "#{search_by_material_products_path}?material=metal" do %>
+        <div class="card-category card-darkershadow">
+          <%= cl_image_tag("metal.svg", width: 60) %>
+          <p>Metal</p>
+        </div>
+      <% end %>
+
       <%= link_to "#{search_by_material_products_path}?material=paper" do %>
         <div class="card-category card-darkershadow">
           <%= cl_image_tag("paper_svg.svg", width: 60) %>
           <p>Paper</p>
+        </div>
+      <% end %>
+
+      <%= link_to "#{search_by_material_products_path}?material=plastic" do %>
+        <div class="card-category card-darkershadow">
+          <%= cl_image_tag("plastic_svg.svg", width: 60) %>
+          <p>Plastic</p>
         </div>
       <% end %>
     </div>

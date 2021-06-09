@@ -34,4 +34,16 @@
 
 .map-box {
   background-color: $light-gray;
+  border-radius:5px;
+  opacity: 0.9;
+  p{
+    font-size: 15px;
+  }
 }
+.mapboxgl-popup-close-button{
+  &:hover{
+    color: $green;
+    background-color: none;
+  }
+}
+
