@@ -76,8 +76,13 @@
 display: flex;
 flex-direction: column;
 padding: 16px;
+// position: relative;
+// bottom: 0;
+// width: 100%;
 }
 .card-product{
+  // position: relative;
+  height: 100%;
   overflow: hidden;
   color: $dark-green;
   font-size: 24px;
@@ -87,7 +92,7 @@ padding: 16px;
   img{
     height: 180px;
     width: 100%;
-    object-fit: cover;
+    object-fit: contain;
   }
   &:hover {
     box-shadow: rgba(99, 99, 99, 0.4) 0px 2px 8px 0px;
