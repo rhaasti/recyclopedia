@@ -5,18 +5,6 @@
 
     <% @products.each do |product|%>
       <%= link_to product_path(product, zipcode: params[:zipcode]), class:"link-product" do %>
-<<<<<<< HEAD
-        <%= cl_image_tag product.photo.key, crop: :fill %>
-
-        <div class="wrap-info">
-
-          <div class="product-description">
-            <h6> <%= product.description %> </h6>
-          </div>
-          <div class="card-product-info">
-              <p>Curbside ✓</p>
-                <i class="far fa-bookmark"></i>
-=======
         <div class="card-product">
           <%= cl_image_tag product.photo.key, crop: :fill %>
           <div class="wrap-info">
@@ -26,7 +14,6 @@
             <div class="card-product-info">
                 <p>Curbside ✓</p>
             </div>
->>>>>>> master
           </div>
         </div>
       <% end %>
