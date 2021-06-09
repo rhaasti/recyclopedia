@@ -1,13 +1,23 @@
-<h1><%= current_user.first_name %>'s lists </h1>
-<p> <% @lists.each do |list| %> </p>
-  <l> <%= link_to list.name, list_path(list) %> </l>
-<% end %>
+<div class="container">
+  <div class="list-title">
+    <h1><%= current_user.first_name %>'s lists </h1>
+    <%= link_to new_list_path %>
+  </div>
+  <hr>
 
-
-<div class="card-product">
-  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-  <div class="card-product-infos">
-    <h2>Product name</h2>
-    <p>Product description with <strong>relevant info</strong> only.</p>
+  <div class="lists">
+    <% @lists.each do |list| %> 
+      <%= link_to list_path(list) do %>
+        <div class="card-product">
+          <%= cl_image_tag (list.products.first.photo.key) %>
+          <div class="card-product-infos">
+            <h2><%= list.name %></h2>
+          </div>
+        </div>
+      <% end %> 
+    <% end %>
   </div>
 </div>
+
+
+
