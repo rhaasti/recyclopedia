@@ -30,7 +30,7 @@
     <div class="px-1">
       <label class="">Enter ZIP Code</label>
       <%= text_field_tag :zipcode,
-        params[:zipcode],
+        params[:zipcode], :required => true,
         class: "form-control form-zip-field",
         placeholder: "90210"
       %>
@@ -48,7 +48,7 @@
 
 </div>
 <div class="container text-center home-image">
-  <%= cl_image_tag("recycle") %>
+  <%= cl_image_tag("recycle.svg") %>
 </div>
 <div class="container-fluid bg-darkgreen">
   <div class="container py-5 text-center">
@@ -58,21 +58,21 @@
     <div class="cards">
       <%= link_to "#{search_by_material_products_path}?material=plastic" do %>
         <div class="card-category card-darkershadow">
-          <%= cl_image_tag("plastic_svg", width: 60) %>
+          <%= cl_image_tag("plastic_svg.svg", width: 60) %>
           <p>Plastic</p>
         </div>
       <% end %>
 
       <%= link_to "#{search_by_material_products_path}?material=glass" do %>
         <div class="card-category card-darkershadow">
-          <%= cl_image_tag("glass_svg", width: 60) %>
+          <%= cl_image_tag("glass_svg.svg", width: 60) %>
           <p>Glass</p>
         </div>
       <% end %>
 
       <%= link_to "#{search_by_material_products_path}?material=paper" do %>
         <div class="card-category card-darkershadow">
-          <%= cl_image_tag("paper_svg", width: 60) %>
+          <%= cl_image_tag("paper_svg.svg", width: 60) %>
           <p>Paper</p>
         </div>
       <% end %>
