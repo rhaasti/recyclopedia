@@ -1,4 +1,21 @@
-<%= simple_form_for(@list) do |t| %>
-  <%= t.input :name, label: "new list name" %>
-  <%= t.button :submit %>
-<% end %>
+
+<div class="container p-5">
+  <div class="d-flex align-items-end justify-content-center">
+    <div class="px-1">
+      <div class="d-flex">
+        <div class="form-product-field">
+        <h3> name your new <span class="green-highlight">list</span></h3>
+
+      <%= simple_form_for(@list) do |t| %>
+        <%= t.input :name, label: false %>
+        <%= t.button :submit, class: "btn-filled" %>
+      <% end %>
+    </div>
+
+</div>
+  <div class="mr-5 pt-5">
+    <%= cl_image_tag("recycle.svg") %>
+  </div>
+</div>
+</div>
+</div>
