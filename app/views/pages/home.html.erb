@@ -4,9 +4,9 @@
 </div>
 <div class="container">
   <!-- STARTS FORM -->
-  <div class="d-flex align-items-end justify-content-center">
+  <div class="d-flex align-items-end justify-content-center ">
     <!-- STARTS PRODUCT FIELD -->
-    <div class="px-1">
+    <div class="px-1 form-product">
     <%= form_tag products_path, method: :get do %>
       <div class="d-flex">
         <label class="">Enter product name or UPC code</label>
@@ -27,7 +27,7 @@
     </div>
     <!-- ENDS PRODUCT FIELD -->
     <!-- STARTS ZIP CODE FIELD -->
-    <div class="px-1">
+    <div class="px-1 form-zip">
       <label class="">Enter ZIP Code</label>
       <%= text_field_tag :zipcode,
         params[:zipcode], :required => true,
