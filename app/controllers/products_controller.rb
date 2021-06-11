@@ -14,12 +14,7 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
-    #1. call search locations method to retrieve hash of long/lat of programs
-    # @programs =
-    #2. iterate thru array long/lat of each program
-    # @markers = @programs.geocoded.map do |program|
-    # end
-    #3. display on map
+
     @bookmark = Bookmark.new
 
     @material_ids = @product.material_ids
@@ -29,14 +24,9 @@ class ProductsController < ApplicationController
 
     @markers = []
     @program_ids = []
-    # @program_info_array = []
 
     @programs.each do |program|
       @program_ids << program["program_id"]
-
-      # @program_ids.each do |program_id|
-      #   @program_info = get_program_info(program_id)
-      # end
 
       @markers <<
         {
@@ -46,7 +36,6 @@ class ProductsController < ApplicationController
         }
 
     end
-    # raise
   end
 
   def search_by_material

@@ -3,7 +3,6 @@
     <h3><%= @product.description %></h3>
     <%= render "bookmarks/new" %>
     <div class="btn-terciary">
-      Bookmark
       <i class="fas fa-bookmark" data-toggle="modal" data-target="#exampleModal"></i>
     </div>
   </div>
@@ -16,7 +15,7 @@
       <h4>Material description</h4>
         <p>
         <% @product.product_materials.each do |product|%>
-        <li><%= product.material.description %> — <%= product.material.long_description %></li>
+        <li><strong><%= product.material.description %></strong> — <%= product.material.long_description %></li>
         <% end %>
         </p>
        <% family_description = [] %>
@@ -26,14 +25,14 @@
               <% family_description.push(family.material_family.description) %>
             <% end %>
           <% end %>
-       <% family_description = family_description.uniq %>
+          <% family_description = family_description.uniq %>
             <% family_description.each do |description| %>
                <button class="tag"><i class="fas fa-tag pr-2"></i><%= description %></button>
             <% end %>
         </div>
         <div class="additional-product-info">
           <div class="upc">
-          <h4>UPC</h4>
+          <h4>UPC code</h4>
           <p><%= @product.UPC %></p>
           </div>
           <div class="size">
