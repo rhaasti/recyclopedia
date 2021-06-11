@@ -5,11 +5,12 @@ Rails.application.routes.draw do
   resources :products, only: [:index, :show] do
     collection do
       get :search_by_material
+      get :show_from_zipcode
     end
 
     resources :bookmarks, only: [:new, :create]
   end
-  
+
   resources :lists, only: [:index, :show, :new, :create] do
     resources :bookmarks, only: [:new, :create]
   end

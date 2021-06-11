@@ -4,6 +4,7 @@
   <div class="product-grid">
 
     <% @products.each do |product|%>
+
       <%= link_to product_path(product, zipcode: params[:zipcode]), class:"link-product" do %>
         <div class="card-product">
           <%= cl_image_tag product.photo.key, crop: :fill %>

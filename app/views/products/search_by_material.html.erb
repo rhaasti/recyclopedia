@@ -1,0 +1,59 @@
+<div class="container py-5">
+  <h3 class="py-5"> <%= @products.count %> relevant products </h3>
+  <!-- foma de busqueda -->
+  <div class="product-grid">
+
+    <% @products.each do |product|%>
+
+        <div class="card-product">
+          <%= cl_image_tag product.photo.key, crop: :fill %>
+          <div class="wrap-info">
+            <div class="product-description">
+              <h6> <%= product.description %> </h6>
+            </div>
+            <div class="card-product-info ">
+                <p>Curbside ✓</p>
+            </div>
+          </div>
+
+
+<%= form_tag show_from_zipcode_products_path, method: :get do %>
+
+
+      <!-- STARTS ZIP CODE FIELD -->
+      <div class="px-1 form-zip">
+        <label class="">Enter ZIP Code</label>
+        <%= text_field_tag :zipcode,
+          params[:zipcode], :required => true,
+          class: "form-control form-zip-field",
+          placeholder: "90210"
+        %>
+      </div>
+      <!-- ENDS ZIP CODE FIELD -->
+
+      <!-- STARTS BUTTON -->
+      <div class="px-1">
+        <%#<%= button_tag type: 'submit', class: "button my-button", id: "register-button" do %>
+          <!-- <i class="fa fa-lock" aria-hidden="true"></i> -->
+        <%#<% end %>
+        <%= submit_tag "Search", class: "btn-filled" %>
+      </div>
+      <!-- ENDS BUTTON -->
+
+    <% end %>
+
+
+        </div>
+
+    <% end %>
+  </div>
+
+
+
+  <div class="py-5">
+    <%= link_to "Back to home", root_path, class:"btn-terciary" %>
+    <!-- <i class="fas fa-arrow-left"></i> -->
+  </div>
+
+</div>
+
