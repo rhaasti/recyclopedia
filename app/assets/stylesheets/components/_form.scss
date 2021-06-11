@@ -7,13 +7,42 @@
   // text-indent: 14px;
   // padding-left: 14px;
 }
+// .form-product-field{
+//   width: 400px;
+// }
+// .form-zip-field{
+//   width: 140px;
+// }
 
-.form-product-field{
-  width: 400px;
+// Small devices (landscape phones, 576px and up)
+@media (max-width: 576px) {
+
+  .form-search{
+
+    display: inline-block;
+  }
 }
-.form-zip-field{
-  width: 140px;
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  .form-product-field{
+    width: 400px;
+  }
+  .form-zip-field{
+    width: 140px;
+  }
 }
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+
+
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+}
+
 
  // navbar partial search bar
  #search-icon{
@@ -29,3 +58,4 @@
 .pl-5 {
   padding-left: ($spacer * 2.5) !important;
 }
+

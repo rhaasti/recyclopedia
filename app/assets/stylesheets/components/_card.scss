@@ -26,8 +26,8 @@
 }
 .cards {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 80px;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 45px;
 }
 
 // Smallest device
@@ -54,14 +54,14 @@
 // Large devices (desktops, 992px and up)
 @media (min-width: 992px) {
   .cards {
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 }
 
 // Extra large devices (large desktops, 1200px and up)
 @media (min-width: 1200px) {
   .cards {
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 }
 
@@ -72,12 +72,52 @@
   grid-gap: 35px;
   background-color: white;
 }
+
+// Smallest device
+@media (min-width: 100px) and (max-width: 575px) {
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+  .product-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  .product-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  .product-grid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  .product-grid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
 .wrap-info{
 display: flex;
 flex-direction: column;
 padding: 16px;
+// position: relative;
+// bottom: 0;
+// width: 100%;
 }
 .card-product{
+  // position: relative;
+  height: 100%;
   overflow: hidden;
   color: $dark-green;
   font-size: 24px;
@@ -87,7 +127,7 @@ padding: 16px;
   img{
     height: 180px;
     width: 100%;
-    object-fit: cover;
+    object-fit: contain;
   }
   &:hover {
     box-shadow: rgba(99, 99, 99, 0.4) 0px 2px 8px 0px;

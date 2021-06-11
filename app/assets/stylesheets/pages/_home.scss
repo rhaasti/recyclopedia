@@ -34,6 +34,8 @@ a:hover{
 .home-image{
   padding-top: 70px;
   width: 900px;
+  max-width:100%;
+  height:auto;
 }
 .bg-darkgreen{
   background-color: $dark-green;

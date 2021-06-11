@@ -14,13 +14,14 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
+
     @bookmark = Bookmark.new
 
     @material_ids = @product.material_ids
     @zipcode = params[:zipcode]
     @programs = get_programs(@material_ids)
     #render error page if no zipcode
-  
+
     @markers = []
     @program_ids = []
 
@@ -46,6 +47,7 @@ class ProductsController < ApplicationController
     @products = Product.joins(product_materials:
       [material: [material_material_families: :material_family]]).where("material_families.description ILIKE ?",
       "%#{params[:material]}%")
+    @products = @products.uniq # or .distinct, test speed
 
     render "index"
   end
