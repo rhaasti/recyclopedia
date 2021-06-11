@@ -9,12 +9,18 @@
                     <%= cl_image_tag (product.photo.key), class: "list-card-img" %>
                     <div class="list-card-info">
                         <h4><%= product.description %></h4>
-                    
-                        <p> Materials:
-                        <% product.materials.each do |material| %>
-                            <br> → <%= material.description %>
-                        <% end %>
-                        </p>
+                          <p>
+                            <% @family_description = [] %>
+                            <% product.materials.each do |material| %>
+                              <% material.material_material_families.each do |family| %>
+                                <% @family_description.push(family.material_family.description) %>
+                              <% end %>
+                            <% end %>
+                            <% @family_description = @family_description.uniq %>
+                              <% @family_description.each do |tag| %>
+                                 <button class="tag"><i class="fas fa-tag pr-2"></i><%= tag %></button>
+                              <% end %>
+                          </p>
                     </div>
                 </div>
           <% end %>
