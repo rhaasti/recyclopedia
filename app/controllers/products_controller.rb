@@ -20,7 +20,9 @@ class ProductsController < ApplicationController
     @material_ids = @product.material_ids
     @zipcode = params[:zipcode]
     @programs = get_programs(@material_ids)
-    #render error page if no zipcode
+    @user_coordinates = { lat: @lat, 
+                          lng: @lng,
+                          image_url: helpers.asset_url('home-icon.png') }
 
     @markers = []
     @program_ids = []
