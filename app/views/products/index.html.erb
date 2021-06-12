@@ -1,8 +1,11 @@
 <div class="container py-5">
   <h3 class="py-5"> <%= @products.count %> relevant products </h3>
+    <div class="py-5">
+    <%= link_to "Back to home", root_path, class:"btn-terciary" %>
+    <!-- <i class="fas fa-arrow-left"></i> -->
+    </div>
 
   <div class="product-grid">
-
     <% @products.each do |product|%>
       <% if params[:zipcode].nil? %>
         <%= render "zipcode_modal", product: product %>
@@ -14,11 +17,8 @@
             </div>
 
             <div class="card-product-info ">
-              <p>Curbside ✓</p>
-              <%# <%= render partial: "bookmarks/new", locals: {product_id: product.id} %> %>
-              <div class="btn-terciary">
-                <i class="fas fa-bookmark" data-toggle="modal" data-target="#exampleModal"></i>
-              </div>
+              <%= render "bookmarks/index_new", product: product %>
+              <i class="fas fa-bookmark" data-toggle="modal" data-target="#exampleModal<%=product.id%>"></i>
             </div>
           </div>
         </div>
@@ -44,10 +44,4 @@
       <% end %>
     <% end %>
   </div>
-
-  <div class="py-5">
-    <%= link_to "Back to home", root_path, class:"btn-terciary" %>
-    <!-- <i class="fas fa-arrow-left"></i> -->
-  </div>
-
 </div>
