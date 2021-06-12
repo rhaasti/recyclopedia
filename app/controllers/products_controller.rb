@@ -4,6 +4,7 @@ class ProductsController < ApplicationController
   skip_before_action :authenticate_user!, except: [:lists]
 
   def index
+    @bookmark = Bookmark.new
     if params[:query].present?
       @products = Product.search_by_upc_or_description(params[:query])
       @temporal_zipcode = TemporalZipcode.create(zipcode: params[:zipcode])
@@ -20,6 +21,7 @@ class ProductsController < ApplicationController
     @material_ids = @product.material_ids
     @zipcode = params[:zipcode]
     @programs = get_programs(@material_ids)
+  
     @user_coordinates = { lat: @lat, 
                           lng: @lng,
                           image_url: helpers.asset_url('home-icon.png') }
@@ -61,6 +63,7 @@ class ProductsController < ApplicationController
     result = JSON.parse(result_serialized)
     if result["error"]
       redirect_to root_path
+      # render "products/error"
     else
       @lat = result["result"]["latitude"]
       @lng = result["result"]["longitude"]
