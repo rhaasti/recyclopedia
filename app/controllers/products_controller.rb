@@ -13,7 +13,7 @@ class ProductsController < ApplicationController
   end
 
   def show_from_zipcode
-    @product = Product.find_by_description(params[:query])
+    @product = Product.find(params[:product_id])
 
     redirect_to "#{product_path(@product)}?zipcode=#{params[:zipcode]}"
   end

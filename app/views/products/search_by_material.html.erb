@@ -4,8 +4,8 @@
   <div class="product-grid">
     <!-- CARDS START -->
     <% @products.each do |product|%>
-
-        <div class="card-product">
+        <%= render "zipcode_modal", product: product %>
+        <div class="card-product" data-toggle="modal" data-target="#ZipcodeModal<%= product.id %>">
           <%= cl_image_tag product.photo.key, crop: :fill %>
 
           <div class="wrap-info">
@@ -17,21 +17,6 @@
             </div>
           </div>
 
-          <%= form_tag show_from_zipcode_products_path, method: :get do %>
-            <!-- STARTS ZIP CODE FIELD -->
-            <div class="px-1 form-zip">
-              <label class="">Enter ZIP Code</label>
-              <!-- missing required keys: [:id] -->
-              <%= text_field_tag :zipcode, params[:zipcode] %>
-            </div>
-            <!-- ENDS ZIP CODE FIELD -->
-
-            <!-- STARTS BUTTON -->
-            <div class="px-1">
-              <%= submit_tag "Search", class: "btn-filled" %>
-            </div>
-            <!-- ENDS BUTTON -->
-          <% end %>
 
         </div>
     <% end %>
