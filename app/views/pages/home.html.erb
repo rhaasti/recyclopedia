@@ -2,15 +2,13 @@
   <h1 class="header">Find out how to <span class="green-highlight">recycle</span></h1>
   <p class="head-text">Search for a specific product based on where you live.</p>
 </div>
-<div class="container">
-
-  <!-- STARTS FORM -->
-  <div class="d-flex align-items-end justify-content-center ">
-
+<div class="container form-home">
     <%= form_tag products_path, method: :get do %>
+  <!-- STARTS FORM STYLE -->
+  <div class="form-row align-items-end justify-content-center">
 
       <!-- STARTS PRODUCT FIELD -->
-      <div class="px-1">
+      <div class="col-md-6 col-lg-4">
         <div class="d-flex">
           <label class="">Enter product name or UPC code</label>
           <div class="pl-1">
@@ -32,7 +30,7 @@
       <!-- ENDS PRODUCT FIELD -->
 
       <!-- STARTS ZIP CODE FIELD -->
-      <div class="px-1 form-zip">
+      <div class="col-md-3 col-lg-2 form-zip">
         <label class="">Enter ZIP Code</label>
         <%= text_field_tag :zipcode,
           params[:zipcode], :required => true,
@@ -43,18 +41,17 @@
       <!-- ENDS ZIP CODE FIELD -->
 
       <!-- STARTS BUTTON -->
-      <div class="px-1">
+      <div class="btn-home-search">
         <%#<%= button_tag type: 'submit', class: "button my-button", id: "register-button" do %>
           <!-- <i class="fa fa-lock" aria-hidden="true"></i> -->
         <%#<% end %>
         <%= submit_tag "Search", class: "btn-filled" %>
       </div>
       <!-- ENDS BUTTON -->
-
     <% end %>
-
+    <!-- ENDS FORM TAG -->
   </div>
-  <!-- ENDS FORM -->
+  <!-- ENDS FORM STYLE -->
 </div>
 
 <div class="container text-center home-image">
