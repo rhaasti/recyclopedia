@@ -26,9 +26,9 @@ class ProductsController < ApplicationController
     @material_ids = @product.material_ids
     @zipcode = params[:zipcode]
     @programs = get_programs(@material_ids)
-    @user_coordinates = { lat: @lat, 
+    @user_coordinates = { lat: @lat,
                           lng: @lng,
-                          image_url: helpers.asset_url('home-icon.png') }
+                          image_url: helpers.asset_url('https://res.cloudinary.com/dg5c592li/image/upload/v1623527941/home-icon.png') }
 
     @markers = []
     @program_ids = []
