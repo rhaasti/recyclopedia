@@ -12,6 +12,13 @@
   background: linear-gradient(180deg, #1b721a 0%, #115819 50%);
   color: white;
   }
+  i{
+    color: white;
+    font-size:14px;
+    &:hover{
+    color: $green;
+  }
+  }
 }
 .btn-terciary{
   color: $dark-green;
