@@ -12,6 +12,12 @@ class ProductsController < ApplicationController
     end
   end
 
+  def show_from_zipcode
+    @product = Product.find(params[:product_id])
+
+    redirect_to "#{product_path(@product)}?zipcode=#{params[:zipcode]}"
+  end
+
   def show
     @product = Product.find(params[:id])
 
@@ -50,7 +56,6 @@ class ProductsController < ApplicationController
       "%#{params[:material]}%")
     @products = @products.uniq # or .distinct, test speed
 
-    render "index"
   end
 
   private

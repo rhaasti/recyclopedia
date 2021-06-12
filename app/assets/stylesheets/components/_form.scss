@@ -7,35 +7,29 @@
   // text-indent: 14px;
   // padding-left: 14px;
 }
-.form-product-field{
-  width: 400px;
+
+// Small devices (landscape phones, 576px and up)
+@media (max-width: 576px) {
+  .btn-home-search{
+    margin-top: 15px;
+  }
+  .form-zip{
+    margin-top: 15px;
+  }
 }
-.form-zip-field{
-  width: 140px;
+
+// Medium devices (tablets, 768px and up)
+@media (max-width: 768px) {
+  .btn-home-search {
+    margin-top: 15px;
+  }
+  .form-zip{
+    margin-top: 15px;
+  }
 }
-
-// // Small devices (landscape phones, 576px and up)
-// @media (max-width: 576px) {
-
-//   .form-search{
-
-//     display: inline-block;
-//   }
-// }
-
-// // Medium devices (tablets, 768px and up)
-// @media (min-width: 768px) {
-//   .form-product-field{
-//     width: 400px;
-//   }
-//   .form-zip-field{
-//     width: 140px;
-//   }
-// }
 
 // // Large devices (desktops, 992px and up)
 // @media (min-width: 992px) {
-
 
 // }
 
