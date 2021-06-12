@@ -26,7 +26,9 @@ class ProductsController < ApplicationController
     @material_ids = @product.material_ids
     @zipcode = params[:zipcode]
     @programs = get_programs(@material_ids)
-    #render error page if no zipcode
+    @user_coordinates = { lat: @lat, 
+                          lng: @lng,
+                          image_url: helpers.asset_url('home-icon.png') }
 
     @markers = []
     @program_ids = []
@@ -40,7 +42,6 @@ class ProductsController < ApplicationController
           lng: program["longitude"],
           info_window: render_to_string(partial: "info_window", locals: { program: get_program_info(program["program_id"]) } )
         }
-
     end
   end
 
@@ -63,8 +64,12 @@ class ProductsController < ApplicationController
     url = "https://api.earth911.com/earth911.getPostalData?api_key=5b7412cae7282842&country=us&postal_code=#{zipcode}"
     result_serialized = URI.open(url).read
     result = JSON.parse(result_serialized)
-    @lat = result["result"]["latitude"]
-    @lng = result["result"]["longitude"]
+    if result["error"]
+      redirect_to root_path
+    else
+      @lat = result["result"]["latitude"]
+      @lng = result["result"]["longitude"]
+    end
   end
 
   def get_programs(material_ids)

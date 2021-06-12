@@ -1,7 +1,28 @@
-<p> <%= @program_info[:description] %> </p>
-<ul>
-  <li>Hours: <%= @program_info[:hours] %></li>
-  <li>Phone number: <%= @program_info[:phone] %></li>
-  <li>Notes: <%= @program_info[:notes_public] %></li>
-  <%# <li>Read more <%= link_to "here", @program_info[:url] %>
-</ul>
+<div class="info-window">
+  <p> <%= @program_info[:description] %> </p>
+  <ul>
+    <% if @program_info[:hours].length > 0 %>
+      <li> <strong>Hours:</strong> <%= @program_info[:hours] %></li>
+    <% else %> 
+      <li> <strong>Hours:</strong> Didn't specify</li>
+    <% end %>
+
+    <% if @program_info[:phone].length > 0 %>
+      <li> <strong>Phone:</strong> <%= @program_info[:phone] %></li>
+    <% else %> 
+      <li> <strong>Phone:</strong> Didn't specify</li>
+    <% end %>
+
+    <% if @program_info[:curbside] %>
+      <li> <strong>Curbside:</strong> Yes </li>
+    <% else %> 
+      <li> <strong>Curbside</strong> No </li>
+    <% end %>
+
+    <% if @program_info[:notes].length > 0 %>
+      <li> <strong>Notes:</strong> <%= @program_info[:notes] %></li>
+    <% else %> 
+      <li> <strong>Notes:</strong> None</li>
+    <% end %>
+  </ul>
+</div>
