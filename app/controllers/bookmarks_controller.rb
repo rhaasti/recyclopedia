@@ -10,9 +10,8 @@ class BookmarksController < ApplicationController
     @bookmark = Bookmark.new(strong_bookmark_params)
     @product = Product.find(params[:product_id])
     @bookmark.product = @product
-    @bookmark.save
+    @bookmark.save!
   end
-
 
 private
 
