@@ -4,20 +4,24 @@
   <div class="product-grid">
 
     <% @products.each do |product|%>
-      <%= link_to product_path(product, zipcode: params[:zipcode]), class:"link-product" do %>
-        <div class="card-product">
+      <div class="card-product">
+        <%= link_to product_path(product, zipcode: params[:zipcode]), class:"link-product" do %>
           <%= cl_image_tag product.photo.key, crop: :fill %>
           <div class="wrap-info">
             <div class="product-description">
               <h6> <%= product.description %> </h6>
             </div>
+        <% end %>
+
             <div class="card-product-info ">
-                <p>Curbside ✓</p>
+              <p>Curbside ✓</p>
+              <%# <%= render partial: "bookmarks/new", locals: {product_id: product.id} %> %>
+              <div class="btn-terciary">
+                <i class="fas fa-bookmark" data-toggle="modal" data-target="#exampleModal"></i>
+              </div>
             </div>
           </div>
-        </div>
-      <% end %>
-
+      </div>
     <% end %>
   </div>
 
