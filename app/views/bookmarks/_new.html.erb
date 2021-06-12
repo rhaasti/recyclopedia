@@ -10,7 +10,7 @@
       </div>
       <div class="modal-body">
 
-      <%= simple_form_for [@product, @list, @bookmark] do |f| %>
+      <%= simple_form_for [local_assigns[:product_id] ? local_assigns[:product_id] : @product, @list, @bookmark] do |f| %>
         <%= f.association :list, label: 'Select a list' %>
         <%# 1.intercept form submission via js TODO adding a listener to the form, prevent default%>
         <%# 2. use a FETCH call to do the POST for bookmark, parse return data%>
