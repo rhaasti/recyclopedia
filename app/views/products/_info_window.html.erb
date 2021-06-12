@@ -13,6 +13,12 @@
       <li> <strong>Phone:</strong> Didn't specify</li>
     <% end %>
 
+    <% if @program_info[:curbside] %>
+      <li> <strong>Curbside:</strong> Yes </li>
+    <% else %> 
+      <li> <strong>Curbside</strong> No </li>
+    <% end %>
+
     <% if @program_info[:notes].length > 0 %>
       <li> <strong>Notes:</strong> <%= @program_info[:notes] %></li>
     <% else %> 
