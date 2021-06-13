@@ -31,6 +31,7 @@ gem 'geocoder'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'faker'
 gem 'devise'
+gem 'turbolinks_render'
 
 gem 'autoprefixer-rails', '10.2.5'
 gem 'font-awesome-sass'
