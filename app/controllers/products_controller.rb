@@ -4,12 +4,19 @@ class ProductsController < ApplicationController
   skip_before_action :authenticate_user!, except: [:lists]
 
   def index
+    @bookmark = Bookmark.new
     if params[:query].present?
       @products = Product.search_by_upc_or_description(params[:query])
       @temporal_zipcode = TemporalZipcode.create(zipcode: params[:zipcode])
     else
       @products = Product.includes(:materials)
     end
+  end
+
+  def show_from_zipcode
+    @product = Product.find(params[:product_id])
+
+    redirect_to "#{product_path(@product)}?zipcode=#{params[:zipcode]}"
   end
 
   def show
@@ -20,7 +27,10 @@ class ProductsController < ApplicationController
     @material_ids = @product.material_ids
     @zipcode = params[:zipcode]
     @programs = get_programs(@material_ids)
-    #render error page if no zipcode
+
+    @user_coordinates = { lat: @lat,
+                          lng: @lng,
+                          image_url: helpers.asset_url('https://res.cloudinary.com/dg5c592li/image/upload/v1623527941/home-icon.png') }
 
     @markers = []
     @program_ids = []
@@ -34,7 +44,6 @@ class ProductsController < ApplicationController
           lng: program["longitude"],
           info_window: render_to_string(partial: "info_window", locals: { program: get_program_info(program["program_id"]) } )
         }
-
     end
   end
 
@@ -49,7 +58,6 @@ class ProductsController < ApplicationController
       "%#{params[:material]}%")
     @products = @products.uniq # or .distinct, test speed
 
-    render "index"
   end
 
   private
@@ -58,8 +66,13 @@ class ProductsController < ApplicationController
     url = "https://api.earth911.com/earth911.getPostalData?api_key=5b7412cae7282842&country=us&postal_code=#{zipcode}"
     result_serialized = URI.open(url).read
     result = JSON.parse(result_serialized)
-    @lat = result["result"]["latitude"]
-    @lng = result["result"]["longitude"]
+    if result["error"]
+      redirect_to root_path
+      # render "products/error"
+    else
+      @lat = result["result"]["latitude"]
+      @lng = result["result"]["longitude"]
+    end
   end
 
   def get_programs(material_ids)

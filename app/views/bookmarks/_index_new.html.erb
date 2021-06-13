@@ -1,5 +1,5 @@
 
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="exampleModal<%=product.id%>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -10,9 +10,8 @@
       </div>
       <div class="modal-body">
 
-      <%= simple_form_for([@product, @list, @bookmark], remote: true) do |f| %>
+      <%= simple_form_for [product, @bookmark] do |f| %>
         <%= f.association :list, label: 'Select a list' %>
-        <%= f.hidden_field :zipcode, value: params[:zipcode] %>
         <%# 1.intercept form submission via js TODO adding a listener to the form, prevent default%>
         <%# 2. use a FETCH call to do the POST for bookmark, parse return data%>
         <%# 3. see if data is correct, if correct, close modal w/ modal.hide, else inject HTML in modal to show error %>

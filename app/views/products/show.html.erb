@@ -14,6 +14,10 @@
 </div>
 
 <div class="container">
+  <div class="py-5">
+    <%= link_to "Back to products", products_path(zipcode: params[:zipcode]), class:"btn-terciary" %>
+    <!-- <i class="fas fa-arrow-left"></i> -->
+  </div>
   <div class="title-box">
     <h3><%= @product.description %></h3>
     <%= render "bookmarks/new" %>
@@ -65,13 +69,11 @@
   <div id="map"
     style="width: 100%; height: 500px;"
     class="container"
-    data-markers="<%= @markers.to_json %>"
+    data-markers="<%= @markers.to_json%>"
+    data-coordinates="<%= @user_coordinates.to_json%>"
     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
-  <div class="py-5">
-    <%= link_to "Back to products", products_path, class:"btn-terciary" %>
-    <!-- <i class="fas fa-arrow-left"></i> -->
-  </div>
+ 
 </div>
 
 

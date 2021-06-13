@@ -21,8 +21,9 @@ class BookmarksController < ApplicationController
       # redirect_to product_path(@product, zipcode:params[:bookmark][:zipcode]), alert: "your product has already been added to this list!"
       end
     end
-  end
 
+
+  end
 
 private
 

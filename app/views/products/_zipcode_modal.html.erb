@@ -1,0 +1,28 @@
+<div id="ZipcodeModal<%= product.id %>" class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content text-center">
+      <div class="py-2 px-3">
+        <button type="button" class="close btn-close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+        <h6 class="modal-title" id="exampleModalLabel">Enter a zip code to continue</h6>
+
+      <%= form_tag show_from_zipcode_products_path, method: :get do %>
+            <!-- STARTS ZIP CODE FIELD -->
+            <div class="p-3 form-zip">
+              <%= text_field_tag :zipcode, params[:zipcode], class: "form-control", placeholder: "90210" %>
+              <%= hidden_field_tag :product_id, product.id %>
+            </div>
+            <!-- ENDS ZIP CODE FIELD -->
+
+            <!-- STARTS BUTTON -->
+            <div class="pb-3">
+              <%= submit_tag "Submit", class: "btn-filled" %>
+            </div>
+            <!-- ENDS BUTTON -->
+      <% end %>
+    </div>
+  </div>
+</div>
+

@@ -2,51 +2,58 @@
   <h1 class="header">Find out how to <span class="green-highlight">recycle</span></h1>
   <p class="head-text">Search for a specific product based on where you live.</p>
 </div>
-<div class="container">
-  <!-- STARTS FORM -->
-  <div class="d-flex align-items-end justify-content-center ">
-    <!-- STARTS PRODUCT FIELD -->
-    <div class="px-1 form-product">
+<div class="container form-home">
     <%= form_tag products_path, method: :get do %>
-      <div class="d-flex">
-        <label class="">Enter product name or UPC code</label>
-        <div class="pl-1">
-          <a href="" class="css-tooltip" data-tooltip=" Universal Product Code, 12 numeric digits">
-          <svg id="btn-tooltip" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-question-circle" viewBox="0 0 16 16">
-            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-            <path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"/>
-          </svg>
-          </a>
-        </div>
-      </div>
-      <%= text_field_tag :query,
-        params[:query],
-        class: "form-control form-product-field",
-        placeholder: "Coca Cola or 049000028904"
-      %>
-    </div>
-    <!-- ENDS PRODUCT FIELD -->
-    <!-- STARTS ZIP CODE FIELD -->
-    <div class="px-1 form-zip">
-      <label class="">Enter ZIP Code</label>
-      <%= text_field_tag :zipcode,
-        params[:zipcode], :required => true,
-        class: "form-control form-zip-field",
-        placeholder: "90210"
-      %>
-    </div>
-    <!-- ENDS ZIP CODE FIELD -->
-    <div class="px-1">
-      <%#<%= button_tag type: 'submit', class: "button my-button", id: "register-button" do %>
-        <!-- <i class="fa fa-lock" aria-hidden="true"></i> -->
-      <%#<% end %>
-      <%= submit_tag "Search", class: "btn-filled" %>
-      <% end %>
-    </div>
-  </div>
-  <!-- ENDS FORM -->
+  <!-- STARTS FORM STYLE -->
+  <div class="form-row align-items-end justify-content-center">
 
+      <!-- STARTS PRODUCT FIELD -->
+      <div class="col-md-6 col-lg-4">
+        <div class="d-flex">
+          <label class="">Enter product name or UPC code</label>
+          <div class="pl-1">
+            <a href="" class="css-tooltip" data-tooltip=" Universal Product Code, 12 numeric digits">
+            <svg id="btn-tooltip" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-question-circle" viewBox="0 0 16 16">
+              <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+              <path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"/>
+            </svg>
+            </a>
+          </div>
+        </div>
+
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control form-product-field",
+          placeholder: "Coca Cola or 049000028904"
+        %>
+      </div>
+      <!-- ENDS PRODUCT FIELD -->
+
+      <!-- STARTS ZIP CODE FIELD -->
+      <div class="col-md-3 col-lg-2 form-zip">
+        <label class="">Enter ZIP Code</label>
+        <%= text_field_tag :zipcode,
+          params[:zipcode], :required => true,
+          class: "form-control form-zip-field",
+          placeholder: "90210"
+        %>
+      </div>
+      <!-- ENDS ZIP CODE FIELD -->
+
+      <!-- STARTS BUTTON -->
+      <div class="btn-home-search">
+        <%#<%= button_tag type: 'submit', class: "button my-button", id: "register-button" do %>
+          <!-- <i class="fa fa-lock" aria-hidden="true"></i> -->
+        <%#<% end %>
+        <%= submit_tag "Search", class: "btn-filled" %>
+      </div>
+      <!-- ENDS BUTTON -->
+    <% end %>
+    <!-- ENDS FORM TAG -->
+  </div>
+  <!-- ENDS FORM STYLE -->
 </div>
+
 <div class="container text-center home-image">
   <%= cl_image_tag("recycle.svg") %>
 </div>
