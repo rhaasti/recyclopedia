@@ -3,7 +3,7 @@ class BookmarksController < ApplicationController
   def new
     @bookmark = Bookmark.new
     @product = Product.find(params[:product_id])
-    @list = List.find(params[:list_id])
+    @list = List.where("user_id = #{current_user.id}")
   end
 
   def create
