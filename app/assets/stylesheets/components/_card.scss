@@ -109,11 +109,16 @@
 }
 .wrap-info{
 display: flex;
-flex-direction: column;
-padding: 16px;
+// flex-direction: column;
+justify-content: space-between;
+align-items: center;
+padding: 18px;
 // position: relative;
 // bottom: 0;
 // width: 100%;
+ h6 {
+   margin: 0;
+ }
 }
 
 .card-product{
@@ -135,19 +140,5 @@ padding: 16px;
   }
 
 }
-.card-product-info{
-  // padding: 0 16px 11px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  // position: relative;
-  p{
-    font-size: 16px;
-    font-weight: 400;
-    margin: 0;
-  }
-  i{
-    font-size: 20px;
-  }
-}
+
 
