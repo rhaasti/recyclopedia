@@ -12,12 +12,9 @@
   background: linear-gradient(180deg, #1b721a 0%, #115819 50%);
   color: white;
   }
-  i{
-    color: white;
-    font-size:14px;
-    &:hover{
-    color: $green;
-  }
+  .btn-home-search-icon {
+    margin-right: 9px;
+    margin-top: -3px;
   }
 }
 .btn-terciary{
@@ -29,7 +26,7 @@
     text-decoration: underline !important;
   }
 }
-i{
+i .btn-bookmark{
   color: $dark-green;
   &:hover{
     color: $green;

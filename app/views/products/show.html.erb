@@ -22,7 +22,7 @@
     <h3><%= @product.description %></h3>
     <%= render "bookmarks/new" %>
     <div class="btn-terciary">
-      <i class="fas fa-bookmark" data-toggle="modal" data-target="#exampleModal"></i>
+      <i class="fas fa-bookmark btn-bookmark" data-toggle="modal" data-target="#exampleModal"></i>
     </div>
   </div>
 
@@ -73,7 +73,7 @@
     data-coordinates="<%= @user_coordinates.to_json%>"
     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
- 
+
 </div>
 
 
