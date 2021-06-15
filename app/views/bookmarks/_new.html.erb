@@ -10,7 +10,7 @@
       </div>
       <div class="modal-body">
 
-      <%= simple_form_for([@product, @list, @bookmark], remote: true) do |f| %>
+      <%= simple_form_for([product, @bookmark]) do |f| %>
         <%= f.association :list, label: 'Select a list' %>
         <%= f.hidden_field :zipcode, value: params[:zipcode] %>
         <%# 1.intercept form submission via js TODO adding a listener to the form, prevent default%>
