@@ -15,8 +15,16 @@ end
 def create
   @list = List.create(strong_params)
   @list.user = current_user
-  @list.save
-  redirect_to lists_path
+  if @list.save
+      respond_to do |format|
+        format.js { flash[:notice] = "your new list has been created"}
+      end
+      redirect_to lists_path
+    else
+      respond_to do |format|
+        format.js { flash.now[:alert] = "you already have a list with this name!"}
+      end
+    end
 end
 
 private
