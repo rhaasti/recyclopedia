@@ -23,7 +23,6 @@ require("channels")
 
 // External imports
 import "bootstrap";
-import { initMapbox } from './map';
 import { closeModal } from './modal';
 
 // Internal imports, e.g:
@@ -32,9 +31,6 @@ import { closeModal } from './modal';
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
-  if (document.querySelector('#map')) {
-    initMapbox();
-  };
   closeModal();
 });
 
