@@ -7,7 +7,10 @@ const map = document.querySelector('#map');
 if (zipcode && map ) {
   fetch(`https://api.earth911.com/earth911.getPostalData?api_key=5b7412cae7282842&country=us&postal_code=${zipcode}`)
   .then(response => response.json())
-  .then((data) => {
+  .then((data) => { 
+    if (data.code == 0) {
+      window.location.href = "/";
+    } else {
     const lat  = data["result"]["latitude"];
     const long = data["result"]["longitude"];
     const userCoords = {
@@ -20,6 +23,7 @@ if (zipcode && map ) {
 
     document.getElementById('map').dataset.coordinates  = JSON.stringify(userCoords);
     getPrograms(programUrl);
+    };
   });
 }
 
