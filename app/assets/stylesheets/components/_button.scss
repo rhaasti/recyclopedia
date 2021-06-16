@@ -32,19 +32,3 @@ i .btn-bookmark{
     color: $green;
   }
 }
-.tag{
-  font-size: 14px;
-  background-color: #E8FFEB;
-  color: $green;
-  border-radius: 60px;
-  border-style: none;
-  padding: 8px 24px;
-  margin-right: 10px;
-  margin-top: 10px;
-  i{
-   color: $green;
-  }
-  &:hover{
-    background-color: #e0f8e4;
-  }
-}
