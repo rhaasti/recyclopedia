@@ -10,12 +10,9 @@
       </div>
       <div class="modal-body">
 
-      <%= simple_form_for([product, @bookmark]) do |f| %>
-        <%= f.association :list, label: 'Select a list' %>
+      <%= simple_form_for([@product, @list, @bookmark], remote: true) do |f| %>
+        <%= f.association :list, label: 'Select a list', collection: current_user.lists %>
         <%= f.hidden_field :zipcode, value: params[:zipcode] %>
-        <%# 1.intercept form submission via js TODO adding a listener to the form, prevent default%>
-        <%# 2. use a FETCH call to do the POST for bookmark, parse return data%>
-        <%# 3. see if data is correct, if correct, close modal w/ modal.hide, else inject HTML in modal to show error %>
         <div class="form-actions text-center">
           <%= f.button :submit, class: "btn-filled close submit"%>
         </div>
