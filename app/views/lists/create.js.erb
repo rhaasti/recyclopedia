@@ -1,0 +1,10 @@
+
+if ("<%=flash[:alert] %>") {
+  document.querySelector("#flash-alert").innerText = "<%= flash[:alert] %>";
+  document.querySelector("#flash-alert").classList.toggle("d-none");
+}
+
+if ("<%=flash[:notice] %>") {
+  document.querySelector("#flash-alert").innerText = "<%= flash[:notice] %>";
+  document.querySelector("#flash-alert").classList.toggle("d-none");
+}
