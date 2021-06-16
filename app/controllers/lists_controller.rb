@@ -1,7 +1,7 @@
 class ListsController < ApplicationController
 
 def index
-  @lists = List.where(params[:user] == current_user)
+  @lists = List.where("user_id = #{current_user.id}")
 end
 
 def show
@@ -18,7 +18,6 @@ def create
   @list.save
   redirect_to lists_path
 end
-
 
 private
 
