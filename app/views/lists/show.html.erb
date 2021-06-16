@@ -2,6 +2,9 @@
   <h2 class="list-title"><%= @list.name %></h2>
   <hr>
   
+  <% if @list.products.empty? %>
+    <h3> search for products, then save to <span class="green-highlight"><%= @list.name %></span></h3>
+  <% else %>
     <div class="list-cards">
         <% @list.products.each do |product| %>
             <%= link_to product_path(product) do %>
@@ -26,6 +29,7 @@
           <% end %>
         <% end %>
     </div>
+    <% end %>
 </div>
 
 
