@@ -25,26 +25,6 @@ class ProductsController < ApplicationController
     @bookmark = Bookmark.new
 
     @material_ids = @product.material_ids
-    @zipcode = params[:zipcode]
-    @programs = get_programs(@material_ids)
-
-    @user_coordinates = { lat: @lat,
-                          lng: @lng,
-                          image_url: helpers.asset_url('https://res.cloudinary.com/dg5c592li/image/upload/v1623527941/home-icon.png') }
-
-    @markers = []
-    @program_ids = []
-
-    @programs.each do |program|
-      @program_ids << program["program_id"]
-
-      @markers <<
-        {
-          lat: program["latitude"],
-          lng: program["longitude"],
-          info_window: render_to_string(partial: "info_window", locals: { program: get_program_info(program["program_id"]) } )
-        }
-    end
   end
 
   def search_by_material
