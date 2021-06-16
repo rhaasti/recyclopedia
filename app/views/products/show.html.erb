@@ -14,7 +14,7 @@
 </div>
 
 <div class="container">
-  <div class="py-5">
+  <div class="pt-5">
     <%= link_to "Back to products", products_path(zipcode: params[:zipcode]), class:"btn-terciary" %>
     <!-- <i class="fas fa-arrow-left"></i> -->
   </div>
@@ -22,7 +22,7 @@
     <h3><%= @product.description %></h3>
     <%= render "bookmarks/new" %>
     <div class="btn-terciary">
-      <i class="fas fa-bookmark" data-toggle="modal" data-target="#exampleModal"></i>
+      <i class="fas fa-bookmark btn-bookmark" data-toggle="modal" data-target="#exampleModal"></i>
     </div>
   </div>
 
@@ -61,19 +61,23 @@
         </div>
     </div>
   </div>
-
+  <!-- <hr class="no-margin"> -->
 </div>
 
-<div class="map-box">
-  <h3 class="text-center my-5">Local recycling locations</h3>
-  <div id="map"
-    style="width: 100%; height: 500px;"
-    class="container"
-    data-markers=""
-    data-coordinates=""
-    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+<div class="container-fluid bg-light mt-5 map-container pb-5">
+  <h4 class="text-center my-5">Local recycling locations</h4>
+  <div class="container d-flex align-items-center justify-content-center">
+    <div id="load-bar" class="lds-ripple pt-4"><div></div><div></div></div>
   </div>
- 
+  <div class="map-box">
+    <div id="map"
+      style="width: 100%; height: 500px;"
+      class="container-fluid"
+      data-markers=""
+      data-coordinates=""
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
+  </div>
 </div>
 
 <%= javascript_pack_tag 'postal_data' %>

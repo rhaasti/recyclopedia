@@ -3,7 +3,8 @@
 
 }
 .css-tooltip:hover:after{
-  content:attr(data-tooltip);
+  // content:attr(data-tooltip);
+  content:url(https://res.cloudinary.com/dg5c592li/image/upload/c_scale,w_165/v1623691008/UPC-tooltip_mwnujj.png);
   font-size:12px;
   background: #fff;
   padding:5px;

@@ -16,7 +16,7 @@ if (zipcode && map ) {
     const userCoords = {
       lat: lat,
       lng: long,
-      image_url: 'https://res.cloudinary.com/dg5c592li/image/upload/v1623527941/home-icon.png' 
+      image_url: 'https://res.cloudinary.com/dg5c592li/image/upload/v1623527941/home-icon.png'
     }
     const materialIds = document.querySelector('.title-box').dataset.materialIds;
     const programUrl  = `https://api.earth911.com/earth911.searchPrograms?api_key=5b7412cae7282842&latitude=${lat}&longitude=${long}&material_ids=${materialIds}`
@@ -38,8 +38,8 @@ async function getPrograms(programUrl) {
   }
 
   document.getElementById('map').dataset.markers = JSON.stringify(markers);
+  document.getElementById('load-bar').remove()
   initMapbox();
-  console.log('finally!!!');
 }
 
 async function getProgram(program) {

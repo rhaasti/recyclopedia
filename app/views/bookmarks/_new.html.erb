@@ -9,7 +9,6 @@
         </button>
       </div>
       <div class="modal-body">
-
       <%= simple_form_for([@product, @list, @bookmark], remote: true) do |f| %>
         <%= f.association :list, label: 'Select a list', collection: current_user.lists %>
         <%= f.hidden_field :zipcode, value: params[:zipcode] %>

@@ -5,12 +5,16 @@
   font-size:15px;
   border-radius: 60px;
   color: white;
-  padding: 8px 38px;
+  padding: 8px 34px;
   border-style: none;
   &:hover{
   background-color: #14621c;
   background: linear-gradient(180deg, #1b721a 0%, #115819 50%);
   color: white;
+  }
+  .btn-home-search-icon {
+    margin-right: 9px;
+    margin-top: -3px;
   }
 }
 .btn-terciary{
@@ -22,25 +26,9 @@
     text-decoration: underline !important;
   }
 }
-i{
+i .btn-bookmark{
   color: $dark-green;
   &:hover{
     color: $green;
-  }
-}
-.tag{
-  font-size: 14px;
-  background-color: #E8FFEB;
-  color: $green;
-  border-radius: 60px;
-  border-style: none;
-  padding: 8px 24px;
-  margin-right: 10px;
-  margin-top: 10px;
-  i{
-   color: $green;
-  }
-  &:hover{
-    background-color: #e0f8e4;
   }
 }
