@@ -13,7 +13,7 @@ class ProductsController < ApplicationController
     end
     url = "https://api.earth911.com/earth911.getPostalData?api_key=5b7412cae7282842&country=us&postal_code=#{params[:zipcode]}"
     data = JSON.parse(URI.open(url).read)
-    if data["code"] == 0
+    if params[:zipcode].present? && data["code"] == 0
       redirect_to root_path, alert: data["error"]
     end
   end
