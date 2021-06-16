@@ -11,6 +11,11 @@ class ProductsController < ApplicationController
     else
       @products = Product.includes(:materials)
     end
+    url = "https://api.earth911.com/earth911.getPostalData?api_key=5b7412cae7282842&country=us&postal_code=#{params[:zipcode]}"
+    data = JSON.parse(URI.open(url).read)
+    if data["code"] == 0
+      redirect_to root_path, alert: data["error"]
+    end
   end
 
   def show_from_zipcode
@@ -38,34 +43,5 @@ class ProductsController < ApplicationController
       "%#{params[:material]}%")
     @products = @products.uniq # or .distinct, test speed
 
-  end
-
-  private
-
-  def zipcode_to_coordinates(zipcode)
-    url = "https://api.earth911.com/earth911.getPostalData?api_key=5b7412cae7282842&country=us&postal_code=#{zipcode}"
-    result_serialized = URI.open(url).read
-    result = JSON.parse(result_serialized)
-    if result["error"]
-      redirect_to root_path
-      # render "products/error"
-    else
-      @lat = result["result"]["latitude"]
-      @lng = result["result"]["longitude"]
-    end
-  end
-
-  def get_programs(material_ids)
-    zipcode_to_coordinates(@zipcode)
-    program_url = "https://api.earth911.com/earth911.searchPrograms?api_key=5b7412cae7282842&latitude=#{@lat}&longitude=#{@lng}&material_ids=#{material_ids}"
-    result_serialized = URI.open(program_url).read
-    result = JSON.parse(result_serialized)
-    programs = result["result"]
-  end
-
-  def get_program_info(program_id)
-    url = "https://api.earth911.com/earth911.getProgramDetails?api_key=5b7412cae7282842&program_id=#{program_id}"
-    result = JSON.parse(URI.open(url).read)["result"]
-    @program_info = { description: result[program_id]["description"], hours: result[program_id]["hours"], phone: result[program_id]["phone"], notes: result[program_id]["notes_public"], curbside: result[program_id]["curbside"] }
   end
 end
