@@ -29,7 +29,8 @@ class ProductsController < ApplicationController
 
     @bookmark = Bookmark.new
 
-    @material_ids = @product.material_ids
+    @material_external_ids = []
+    get_material_external_ids
   end
 
   def search_by_material
@@ -43,5 +44,13 @@ class ProductsController < ApplicationController
       "%#{params[:material]}%")
     @products = @products.uniq # or .distinct, test speed
 
+  end
+end
+
+private
+
+def get_material_external_ids
+  @product.materials.each do |material|
+    @material_external_ids << material.external_id
   end
 end
