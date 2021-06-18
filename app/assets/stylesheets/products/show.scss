@@ -21,6 +21,9 @@
     cursor:default;
   }
 }
+.product-card{
+  margin-top: 45px;
+}
 .tag{
   font-size: 14px;
   background-color: #E8FFEB;
@@ -34,12 +37,17 @@
    color: $green;
   }
 }
-
-.image {
+.img-container{
   width: 400px;
-  margin-right: 50px;
-  object-fit: cover;
-  border-radius: 10px;
+  max-width:100%;
+  max-height: 500px;
+  height:auto;
+  margin-right: 25px;
+}
+.product-image {
+  width: 400px;
+  max-height: 400px;
+  object-fit: contain;
 }
 
 .additional-product-info {
@@ -52,19 +60,32 @@
 .no-margin{
   margin: 0;
 }
+
+// MAP
 .map-container{
   padding-right: 0 !important;
   padding-left: 0 !important;
 }
 .map-box {
   p{
-    font-size: 15px;
+    font-size: 13px;
+    margin-bottom: 3px;
+  }
+  h6{
+    font: 16px Nunito, sans-serif;
+    color: #1c1c1c;
+    font-weight: strong;
   }
 }
 .mapboxgl-popup-close-button{
   &:hover{
     color: $green;
-    background-color: none;
+    background-color: none !important;
   }
+}
+.mapboxgl-popup{
+  max-width: 350px !important;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px !important;
+  border-radius: 8px !important;
 }
 

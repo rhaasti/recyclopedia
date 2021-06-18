@@ -7,7 +7,7 @@ const map = document.querySelector('#map');
 if (zipcode && map ) {
   fetch(`https://api.earth911.com/earth911.getPostalData?api_key=5b7412cae7282842&country=us&postal_code=${zipcode}`)
   .then(response => response.json())
-  .then((data) => { 
+  .then((data) => {
     if (data.code == 0) {
       window.location.href = "/";
     } else {
@@ -61,25 +61,25 @@ async function getProgram(program) {
 
 const infoWindow = (programInfo) => {
     return(`<div class="info-window">
-    <p>${programInfo['description']}</p>
-    <ul>
+    <h6>${programInfo['description']}</h6>
+
      ${
-       programInfo['hours'].length > 0 ? `<li> <strong>Hours:</strong>${programInfo['hours']}</li>` :
-        `<li> <strong>Hours:</strong> Didn't specify</li>`
+       programInfo['hours'].length > 0 ? `<p><i class="fas fa-clock"></i> ${programInfo['hours']}` :
+        `<strong>Hours:</strong> Didn't specify</p>`
       }
       ${
-        programInfo['phone'].length > 0 ? `<strong>Phone:</strong>${programInfo['phone']}</li>` :
-        `<li> <strong>Phone:</strong> Didn't specify</li>`
+        programInfo['phone'].length > 0 ? `<p><i class="fas fa-phone"></i> ${programInfo['phone']}` :
+        `<strong>Phone:</strong> Didn't specify</p>`
       }
       ${
-        programInfo['curbside'] ? `<li> <strong>Curbside:</strong> Yes </li>` :
-        `<li> <strong>Curbside</strong> No </li>`
+        programInfo['curbside'] ? `<p><strong>Curbside: </strong> Yes` :
+        `<strong>Curbside</strong> No</p>`
       }
       ${
-        programInfo['notes'].length > 0 ? `<li> <strong>Notes:</strong>${programInfo['notes']}</li>` :
-        `<li> <strong>Notes:</strong> None</li>`
+        programInfo['notes'].length > 0 ? `<p>${programInfo['notes']}` :
+        `<strong>Notes:</strong> None</p>`
       }
-    </ul>
+
   </div>
   `)
 }
