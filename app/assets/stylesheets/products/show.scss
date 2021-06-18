@@ -22,7 +22,7 @@
   }
 }
 .product-card{
-  margin-top: 45px;
+  margin-top: 35px;
 }
 .tag{
   font-size: 14px;
@@ -89,3 +89,23 @@
   border-radius: 8px !important;
 }
 
+// Small devices (landscape phones, 576px and up)
+@media (max-width: 576px) {
+  .product-card{
+    display: inline-block;
+
+  }
+  .product-info{
+    padding-top: 30px;
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (max-width: 768px) {
+  .product-card{
+  display: inline-block;
+  }
+  .product-info{
+    padding-top: 30px;
+  }
+}
