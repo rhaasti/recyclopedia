@@ -45,7 +45,13 @@
               <div class="card-product-info ">
                 <%= render "bookmarks/index_new", product: product %>
                 <div class="btn-terciary">
-                  <i class="fas fa-bookmark" data-toggle="modal" data-target="#exampleModal<%=product.id%>"></i>
+                  <% if product.bookmarked?(current_user) %>
+
+                    <i class="fas fa-bookmark" data-toggle="modal" data-target="#exampleModal<%=product.id%>"></i>
+                  <% else %>
+                    <i class="far fa-bookmark" data-toggle="modal" data-target="#exampleModal<%=product.id%>"></i>
+                  <% end %>
+                  <!-- current_user ya tiene el bookmark con el producto -->
                 </div>
               </div>
             </div>
