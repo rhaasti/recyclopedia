@@ -10,7 +10,7 @@
       </div>
       <div class="modal-body">
 
-      <%= simple_form_for ([product, @bookmark]) do |f| %>
+      <%= simple_form_for([product, @bookmark], remote: true) do |f| %>
         <%= f.association :list, label: 'Select a list', collection: current_user.lists %>
         <div class="form-actions text-center">
           <%= f.button :submit, class: "btn-filled close submit"%>
