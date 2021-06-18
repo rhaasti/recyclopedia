@@ -14,10 +14,6 @@
 
 <div class="container py-5">
   <h3 class="py-5"> <%= pluralize @products.count, "relevant product" %></h3>
-    <div class="py-5">
-    <%= link_to "Back to home", root_path, class:"btn-terciary" %>
-    <!-- <i class="fas fa-arrow-left"></i> -->
-    </div>
 
   <div class="product-grid">
     <% @products.each do |product|%>
@@ -56,5 +52,9 @@
         </div>
       <% end %>
     <% end %>
+  </div>
+  <div class="py-5">
+    <%= link_to "Back to home", root_path, class:"btn-terciary" %>
+    <!-- <i class="fas fa-arrow-left"></i> -->
   </div>
 </div>
