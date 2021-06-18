@@ -13,7 +13,7 @@ class ProductsController < ApplicationController
     end
     url = "https://api.earth911.com/earth911.getPostalData?api_key=5b7412cae7282842&country=us&postal_code=#{params[:zipcode]}"
     data = JSON.parse(URI.open(url).read)
-    if data["code"] == 0
+    if params[:zipcode].present? && data["code"] == 0
       redirect_to root_path, alert: data["error"]
     end
   end
@@ -29,7 +29,8 @@ class ProductsController < ApplicationController
 
     @bookmark = Bookmark.new
 
-    @material_ids = @product.material_ids
+    @material_external_ids = []
+    get_material_external_ids
   end
 
   def search_by_material
@@ -43,5 +44,13 @@ class ProductsController < ApplicationController
       "%#{params[:material]}%")
     @products = @products.uniq # or .distinct, test speed
 
+  end
+end
+
+private
+
+def get_material_external_ids
+  @product.materials.each do |material|
+    @material_external_ids << material.external_id
   end
 end
