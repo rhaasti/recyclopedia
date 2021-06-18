@@ -7,16 +7,16 @@
         <%= render "zipcode_modal", product: product %>
         <div class="card-product" data-toggle="modal" data-target="#ZipcodeModal<%= product.id %>">
           <%= cl_image_tag product.photo.key, crop: :fill %>
-
           <div class="wrap-info">
             <div class="product-description">
               <h6> <%= product.description %> </h6>
             </div>
+
             <div class="card-product-info ">
-                <p>Curbside ✓</p>
+              <%= render "bookmarks/index_new", product: product %>
+              <i class="fas fa-bookmark" data-toggle="modal" data-target="#exampleModal<%=product.id%>"></i>
             </div>
           </div>
-
         </div>
     <% end %>
     <!-- CARDS END -->
