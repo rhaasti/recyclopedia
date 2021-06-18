@@ -34,16 +34,11 @@ class ProductsController < ApplicationController
   end
 
   def search_by_material
-    # Find products by material
-      # Product.joins(product_materials: :material)
-      # Product.joins(product_materials: [material: :material_material_families])
-      # Product.joins(product_materials: [material: [material_material_families: :material_family]])
-    # TO DO: validate params
     @products = Product.joins(product_materials:
       [material: [material_material_families: :material_family]]).where("material_families.description ILIKE ?",
       "%#{params[:material]}%")
     @products = @products.uniq # or .distinct, test speed
-
+    @bookmark = Bookmark.new
   end
 end
 
