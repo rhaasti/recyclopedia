@@ -6,10 +6,10 @@ class ProductsController < ApplicationController
   def index
     @bookmark = Bookmark.new
     if params[:query].present?
-      @products = Product.search_by_upc_or_description(params[:query])
+      @products = Product.search_by_upc_or_description(params[:query]).order("description ASC")
       @temporal_zipcode = TemporalZipcode.create(zipcode: params[:zipcode])
     else
-      @products = Product.includes(:materials)
+      @products = Product.includes(:materials).order("description ASC")
     end
     url = "https://api.earth911.com/earth911.getPostalData?api_key=5b7412cae7282842&country=us&postal_code=#{params[:zipcode]}"
     data = JSON.parse(URI.open(url).read)
@@ -36,7 +36,7 @@ class ProductsController < ApplicationController
   def search_by_material
     @products = Product.joins(product_materials:
       [material: [material_material_families: :material_family]]).where("material_families.description ILIKE ?",
-      "%#{params[:material]}%")
+      "%#{params[:material]}%").order("description ASC")
     @products = @products.uniq # or .distinct, test speed
     @bookmark = Bookmark.new
   end

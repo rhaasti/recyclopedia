@@ -9,3 +9,9 @@ if ("<%=flash[:notice] %>") {
   document.querySelector("#flash-alert").classList.remove("d-none");
   document.querySelector("#closeModal").click();
 }
+
+const btnBookmark = document.querySelector("#btn-bookmark<%=@product.id%>");
+if (btnBookmark){
+  btnBookmark.classList.remove('far');
+  btnBookmark.classList.add('fas');
+}

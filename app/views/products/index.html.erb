@@ -34,7 +34,13 @@
               <div class="card-product-info ">
                 <% if current_user %>
                     <%= render "bookmarks/index_new", product: product %>
-                    <i class="fas fa-bookmark" data-toggle="modal" data-target="#exampleModal<%=product.id%>"></i>
+                    <div class="btn-terciary">
+                     <% if product.bookmarked?(current_user) %>
+                        <i class="fas fa-bookmark" id="btn-bookmark<%=product.id%>" data-toggle="modal" data-target="#exampleModal<%=product.id%>"></i>
+                     <% else %>
+                      <i class="far fa-bookmark" id="btn-bookmark<%=product.id%>" data-toggle="modal" data-target="#exampleModal<%=product.id%>"></i>
+                     <% end %>
+                    </div>
                 <% else %>
                   <%= link_to bookmarks_alert_path do %>
                     <i class="fas fa-bookmark"></i>
