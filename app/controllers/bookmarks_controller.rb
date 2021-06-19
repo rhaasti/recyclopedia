@@ -18,7 +18,6 @@ class BookmarksController < ApplicationController
     @bookmark = Bookmark.new(strong_bookmark_params)
     @product = Product.find(params[:product_id])
     @bookmark.product = @product
-    @bookmark.zipcode = params[:bookmark][:zipcode]
     if @bookmark.save
       respond_to do |format|
         format.js { flash.now[:notice] = "Product added to list!"}
