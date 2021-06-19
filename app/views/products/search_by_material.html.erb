@@ -2,47 +2,34 @@
   <h3 class="py-5"> <%= @products.count %> relevant products </h3>
 
   <div class="product-grid">
-    <!-- CARDS START -->
     <% @products.each do |product|%>
-    <% if current_user.nil? %>
-        <div class="card-product">
-          <%= cl_image_tag product.photo.key, crop: :fill %>
-          <div class="wrap-info">
-            <div class="product-description">
-              <h6> <%= product.description %> </h6>
-            </div>
-
-            <div class="card-product-info">
-              <%= link_to new_user_session_path do %>
-                <i class="fas fa-bookmark"></i>
-              <% end %>
-            </div>
-          </div>
-        </div>
-      <% else %>
-        <%= render "zipcode_modal", product: product %>
+        <%= render "zipcode_modal", product: product if current_user && params[:zipcode].nil? %>
         <div class="card-product" data-toggle="modal" data-target="#ZipcodeModal<%= product.id %>">
-          <%= cl_image_tag product.photo.key, crop: :fill %>
-          <div class="wrap-info">
-            <div class="product-description">
-              <h6> <%= product.description %> </h6>
-            </div>
+          <%= link_to product_path(product), class: "dark-green" do %>
+            <%= cl_image_tag product.photo.key, crop: :fill %>
+            <div class="wrap-info">
+              <div class="product-description">
+                <h6> <%= product.description %> </h6>
+              </div>
+          <% end %>
 
-            <div class="card-product-info ">
-              <%= render "bookmarks/index_new", product: product %>
-              <i class="fas fa-bookmark" data-toggle="modal" data-target="#exampleModal<%=product.id%>"></i>
+              <div class="card-product-info ">
+                <% if current_user %>
+                    <%= render "bookmarks/index_new", product: product %>
+                    <i class="fas fa-bookmark" data-toggle="modal" data-target="#exampleModal<%=product.id%>"></i>
+                <% else %>
+                  <%= link_to bookmarks_alert_path do %>
+                    <i class="fas fa-bookmark"></i>
+                  <% end %>
+                <% end %>
+              </div>
             </div>
-          </div>
         </div>
-      <% end %>
     <% end %>
-    <!-- CARDS END -->
   </div>
-
 
   <div class="py-5">
     <%= link_to "Back to home", root_path, class:"btn-terciary" %>
   </div>
-
 </div>
 
