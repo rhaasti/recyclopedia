@@ -15,7 +15,13 @@
             <div class="card-product-info ">
 
               <%= render "bookmarks/index_new", product: product %>
-              <i class="fas fa-bookmark" data-toggle="modal" data-target="#exampleModal<%=product.id%>"></i>
+              <div class="btn-terciary">
+                <% if product.bookmarked?(current_user) %>
+                  <i class="fas fa-bookmark" id="btn-bookmark<%=product.id%>" data-toggle="modal" data-target="#exampleModal<%=product.id%>"></i>
+                <% else %>
+                  <i class="far fa-bookmark" id="btn-bookmark<%=product.id%>" data-toggle="modal" data-target="#exampleModal<%=product.id%>"></i>
+                <% end %>
+              </div>
 
             </div>
           </div>
@@ -23,7 +29,6 @@
     <% end %>
     <!-- CARDS END -->
   </div>
-
 
   <div class="py-5">
     <%= link_to "Back to home", root_path, class:"btn-terciary" %>
