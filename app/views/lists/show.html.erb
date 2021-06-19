@@ -7,8 +7,9 @@
   <% else %>
     <div class="list-cards">
         <% @list.products.each do |product| %>
+          <%= render "products/zipcode_modal", product: product %>
+          <div class="card-product" data-toggle="modal" data-target="#ZipcodeModal<%= product.id %>">
             <% @list.bookmarks.each do |bookmark|%>
-            <%= link_to product_path(product, zipcode: "#{bookmark.zipcode}") do %>
                 <div class="list-card">
                     <%= cl_image_tag (product.photo.key), class: "list-card-img" %>
                     <div class="list-card-info">
@@ -27,10 +28,10 @@
                           </p>
                     </div>
                 </div>
-            <% end %>
           <% end %>
+          </div>
         <% end %>
-    </div>
+  </div>
     <% end %>
 </div>
 

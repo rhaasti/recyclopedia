@@ -20,14 +20,20 @@
   </div>
   <div class="title-box", data-external-material-ids="<%= @material_external_ids %>">
     <h3><%= @product.description %></h3>
-    <%= render "bookmarks/new" %>
-    <div class="btn-terciary">
-      <i class="fas fa-bookmark btn-bookmark" data-toggle="modal" data-target="#exampleModal"></i>
-
-    </div>
+    <% if current_user %>
+      <%= render "bookmarks/new" %>
+      <div class="btn-terciary">
+        <i class="fas fa-bookmark btn-bookmark" data-toggle="modal" data-target="#exampleModal"></i>
+      </div>
+    <% else %>
+      <%= link_to bookmarks_alert_path do %>
+        <i class="fas fa-bookmark"></i>
+      <% end %>
+    <% end %>
   </div>
 
   <hr>
+
 
   <div class="product-card">
     <div class="img-container">
@@ -49,7 +55,9 @@
           <% end %>
           <% family_description = family_description.uniq %>
             <% family_description.each do |description| %>
+              <%= link_to "#{search_by_material_products_path}?material=#{description}" do %>
                <button class="tag"><i class="fas fa-tag pr-2"></i><%= description %></button>
+               <% end %>
             <% end %>
         </div>
         <div class="additional-product-info">

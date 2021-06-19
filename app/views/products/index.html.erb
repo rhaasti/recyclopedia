@@ -15,26 +15,15 @@
 <div class="container py-5">
   <h3 class="py-5"> <%= pluralize @products.count, "relevant product" %></h3>
 
+<%# 2. no zipcode and yes current_user > zipcode modal
+3. yes zipcode and yes current_user > link_to and no zipcode modal %>
+<%# 1. no zipcode and no current_user > alert and no zipcode modal %>
+
   <div class="product-grid">
     <% @products.each do |product|%>
-      <% if params[:zipcode].nil? %>
-        <%= render "zipcode_modal", product: product %>
+        <%= render "zipcode_modal", product: product if current_user && params[:zipcode].nil? %>
         <div class="card-product" data-toggle="modal" data-target="#ZipcodeModal<%= product.id %>">
-          <%= cl_image_tag product.photo.key, crop: :fill %>
-          <div class="wrap-info">
-            <div class="product-description">
-              <h6> <%= product.description %> </h6>
-            </div>
-
-            <div class="card-product-info ">
-              <%= render "bookmarks/index_new", product: product %>
-              <i class="fas fa-bookmark" data-toggle="modal" data-target="#exampleModal<%=product.id%>"></i>
-            </div>
-          </div>
-        </div>
-      <% else %>
-        <div class="card-product" data-toggle="modal" data-target="#ZipcodeModal<%= product.id %>">
-          <%= link_to product_path(product, zipcode: params[:zipcode]), class:"link-product" do %>
+          <%= link_to product_path(product), class: "dark-green" do %>
             <%= cl_image_tag product.photo.key, crop: :fill %>
             <div class="wrap-info">
               <div class="product-description">
@@ -43,20 +32,26 @@
           <% end %>
 
               <div class="card-product-info ">
-                <%= render "bookmarks/index_new", product: product %>
-                <div class="btn-terciary">
-                  <% if product.bookmarked?(current_user) %>
-                    <i class="fas fa-bookmark" id="btn-bookmark<%=product.id%>" data-toggle="modal" data-target="#exampleModal<%=product.id%>"></i>
-                  <% else %>
-                    <i class="far fa-bookmark" id="btn-bookmark<%=product.id%>" data-toggle="modal" data-target="#exampleModal<%=product.id%>"></i>
+                <% if current_user %>
+                    <%= render "bookmarks/index_new", product: product %>
+                    <div class="btn-terciary">
+                     <% if product.bookmarked?(current_user) %>
+                        <i class="fas fa-bookmark" id="btn-bookmark<%=product.id%>" data-toggle="modal" data-target="#exampleModal<%=product.id%>"></i>
+                     <% else %>
+                      <i class="far fa-bookmark" id="btn-bookmark<%=product.id%>" data-toggle="modal" data-target="#exampleModal<%=product.id%>"></i>
+                     <% end %>
+                    </div>
+                <% else %>
+                  <%= link_to bookmarks_alert_path do %>
+                    <i class="fas fa-bookmark"></i>
                   <% end %>
-                </div>
+                <% end %>
               </div>
             </div>
         </div>
-      <% end %>
     <% end %>
   </div>
+
   <div class="py-5">
     <%= link_to "Back to home", root_path, class:"btn-terciary" %>
     <!-- <i class="fas fa-arrow-left"></i> -->
