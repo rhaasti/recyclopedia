@@ -48,7 +48,9 @@
           <% end %>
           <% family_description = family_description.uniq %>
             <% family_description.each do |description| %>
+              <%= link_to "#{search_by_material_products_path}?material=#{description}" do %>
                <button class="tag"><i class="fas fa-tag pr-2"></i><%= description %></button>
+               <% end %>
             <% end %>
         </div>
         <div class="additional-product-info">
