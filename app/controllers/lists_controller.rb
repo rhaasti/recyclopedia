@@ -17,12 +17,12 @@ def create
   @list.user = current_user
   if @list.save
       respond_to do |format|
-        format.js { flash[:notice] = "your new list has been created"}
+        format.js { flash[:notice] = "Your new list has been created"}
       end
       redirect_to lists_path
     else
       respond_to do |format|
-        format.js { flash.now[:alert] = "you already have a list with this name!"}
+        format.js { flash.now[:alert] = "You already have a list with this name!"}
       end
     end
 end
