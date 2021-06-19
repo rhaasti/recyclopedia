@@ -14,11 +14,6 @@
 
 <div class="container py-5">
   <h3 class="py-5"> <%= pluralize @products.count, "relevant product" %></h3>
-
-<%# 2. no zipcode and yes current_user > zipcode modal
-3. yes zipcode and yes current_user > link_to and no zipcode modal %>
-<%# 1. no zipcode and no current_user > alert and no zipcode modal %>
-
   <div class="product-grid">
     <% @products.each do |product|%>
         <%= render "zipcode_modal", product: product if current_user && params[:zipcode].nil? %>
