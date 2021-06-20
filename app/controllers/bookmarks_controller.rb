@@ -34,6 +34,6 @@ class BookmarksController < ApplicationController
 private
 
 def strong_bookmark_params
-  params.require(:bookmark).permit(:product_id, :list_id)
+  params.require(:bookmark).permit(:product_id, :list_id, :zipcode)
 end
 end
