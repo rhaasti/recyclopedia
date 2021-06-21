@@ -12,23 +12,24 @@
   </button>
 </div>
 
-<div class="container p-5">
-  <div class="d-flex align-items-end justify-content-center">
-    <div class="px-1">
-      <div class="d-flex">
-        <div class="form-product-field">
-        <h3> name your new <span class="green-highlight">list</span></h3>
+<div class="container-fluid bg-light mt-1 py-5 new-list-container">
+  <div class="d-flex align-items-center justify-content-center ">
+        <div class="form-product-field text-center form-cage mr-5">
+          <h4 class="pb-1">Name your new <span class="green-highlight">list</span></h4>
+          <%= simple_form_for([@list], remote: true) do |t| %>
+            <%= t.input :name, label: false %>
+            <div class="d-flex align-items-center justify-content-center">
+            <%= t.button :submit, class: "btn-filled" %>
+          <% end %>
+            <%= link_to "Cancel", products_path, class:"btn-terciary ml-3" %>
+          </div>
+        </div>
 
-      <%= simple_form_for([@list], remote: true) do |t| %>
-        <%= t.input :name, label: false %>
-        <%= t.button :submit, class: "btn-filled" %>
-      <% end %>
+    <div class="pl-5">
+      <%= cl_image_tag("new_list_illustration", width: 350) %>
     </div>
-
-</div>
-  <div class="mr-5 pt-5">
-    <%= cl_image_tag("recycle.svg") %>
   </div>
 </div>
-</div>
-</div>
+
+
+
