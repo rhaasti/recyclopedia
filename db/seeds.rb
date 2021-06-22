@@ -1,4 +1,5 @@
 Bookmark.destroy_all
+List.destroy_all
 MaterialMaterialFamily.destroy_all
 ProductMaterial.destroy_all
 MaterialFamily.destroy_all

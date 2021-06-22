@@ -27,7 +27,7 @@
           </div>
       <% else %>
           <div class="card-product" data-toggle="modal" data-target="#ZipcodeModal<%= product.id %>">
-          <%= link_to product_path(product), class: "dark-green" do %>
+          <%= link_to product_path(product, zipcode: params[:zipcode]), class: "dark-green" do %>
             <%= cl_image_tag product.photo.key, crop: :fill %>
             <div class="wrap-info">
               <div class="product-description">
