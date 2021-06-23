@@ -22,11 +22,15 @@
 .list-card {
   height: 175px;
   background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  box-shadow: 0 0 15px rgba(75, 72, 72, 0.2);
   display: flex;
   align-items: center;
   margin-top: 20px;
   border-radius: 10px;
+}
+
+.list-card-info {
+  padding: 16px;
 }
 
 .list-card-img {
@@ -48,6 +52,7 @@
 .list-card p {
   font-size: 16px;
   margin-left: 35px;
+  margin-bottom: 0;
 }
 
 .list-index-cards {
