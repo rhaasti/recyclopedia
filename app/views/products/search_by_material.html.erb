@@ -1,3 +1,17 @@
+<div class="alert alert-info alert-dismissible fade show m-1 d-none" role="alert" id="flash-info">
+  <%= notice %>
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+<div class="alert alert-warning alert-dismissible fade show m-1 d-none" role="alert" id="flash-alert">
+  <%= alert %>
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
 <div class="container py-5">
   <h3 class="py-5"> <%= @products.count %> relevant products </h3>
     <div class="py-4">
@@ -8,12 +22,14 @@
     <% @products.each do |product|%>
       <% if params[:zipcode].nil? %>
         <%= render "zipcode_modal", product: product %>
-        <div class="card-product" data-toggle="modal" data-target="#ZipcodeModal<%= product.id %>">
+        <div class="card-product">
+          <div data-toggle="modal" data-target="#ZipcodeModal<%= product.id %>" >
             <%= cl_image_tag product.photo.key, crop: :fill %>
-        <div class="wrap-info">
-          <div class="product-description">
-            <h6> <%= product.description %> </h6>
           </div>
+          <div class="wrap-info">
+            <div class="product-description" data-toggle="modal" data-target="#ZipcodeModal<%= product.id %>">
+              <h6> <%= product.description %> </h6>
+            </div>
       <% else %>
           <%= link_to product_path(product), class: "dark-green" do %>
             <%= cl_image_tag product.photo.key, crop: :fill %>
@@ -22,7 +38,7 @@
                 <h6> <%= product.description %> </h6>
               </div>
           <% end %>
-          <% end %>
+      <% end %>
 
               <div class="card-product-info ">
                 <% if current_user %>

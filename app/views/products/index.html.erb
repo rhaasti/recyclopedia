@@ -18,10 +18,12 @@
     <% @products.each do |product|%>
       <% if params[:zipcode].nil? %>
         <%= render "zipcode_modal", product: product %>
-        <div class="card-product" data-toggle="modal" data-target="#ZipcodeModal<%= product.id %>">
+        <div class="card-product">
+          <div data-toggle="modal" data-target="#ZipcodeModal<%= product.id %>" >
             <%= cl_image_tag product.photo.key, crop: :fill %>
+          </div>
         <div class="wrap-info">
-          <div class="product-description">
+          <div class="product-description" data-toggle="modal" data-target="#ZipcodeModal<%= product.id %>">
             <h6> <%= product.description %> </h6>
           </div>
       <% else %>
