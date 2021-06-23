@@ -1,5 +1,0 @@
-meta_product_name: "Recyclopedia"
-meta_title: "Reyclopedia - Learn how to recycle"
-meta_description: "Find out how to recycle a specific product based on your location"
-meta_image: "recycle_illustration_img.png" # should exist in `app/assets/images/`
-twitter_account: "@product_twitter_account"   # required for Twitter Cards
