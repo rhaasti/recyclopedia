@@ -8,7 +8,7 @@
     <div class="list-cards">
       <% @list.products.each do |product| %>
         <%= render "products/zipcode_modal", product: product %>
-        <div class="card-product" data-toggle="modal" data-target="#ZipcodeModal<%= product.id %>">
+        <div class="list-product" data-toggle="modal" data-target="#ZipcodeModal<%= product.id %>">
           <% @list.bookmarks.each do |bookmark|%>
               <div class="list-card">
                   <%= cl_image_tag (product.photo.key), class: "list-card-img" %>
