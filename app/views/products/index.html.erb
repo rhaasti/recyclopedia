@@ -16,14 +16,23 @@
   <h3 class="py-5"> <%= pluralize @products.count, "relevant product" %></h3>
   <div class="product-grid">
     <% @products.each do |product|%>
-        <%= render "zipcode_modal", product: product if current_user && params[:zipcode].nil? %>
+      <% if params[:zipcode].nil? %>
+        <%= render "zipcode_modal", product: product %>
         <div class="card-product" data-toggle="modal" data-target="#ZipcodeModal<%= product.id %>">
-          <%= link_to product_path(product), class: "dark-green" do %>
+            <%= cl_image_tag product.photo.key, crop: :fill %>
+        <div class="wrap-info">
+          <div class="product-description">
+            <h6> <%= product.description %> </h6>
+          </div>
+      <% else %>
+          <div class="card-product" data-toggle="modal" data-target="#ZipcodeModal<%= product.id %>">
+          <%= link_to product_path(product, zipcode: params[:zipcode]), class: "dark-green" do %>
             <%= cl_image_tag product.photo.key, crop: :fill %>
             <div class="wrap-info">
               <div class="product-description">
                 <h6> <%= product.description %> </h6>
               </div>
+          <% end %>
           <% end %>
 
               <div class="card-product-info ">
@@ -49,6 +58,6 @@
 
   <div class="py-5">
     <%= link_to "Back to home", root_path, class:"btn-terciary" %>
-    <!-- <i class="fas fa-arrow-left"></i> -->
   </div>
+</div>
 </div>
