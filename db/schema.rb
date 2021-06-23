@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_18_010702) do
+ActiveRecord::Schema.define(version: 2021_06_05_161120) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,7 +39,6 @@ ActiveRecord::Schema.define(version: 2021_06_18_010702) do
   create_table "bookmarks", force: :cascade do |t|
     t.bigint "product_id", null: false
     t.bigint "list_id", null: false
-    t.string "zipcode"
     t.index ["list_id"], name: "index_bookmarks_on_list_id"
     t.index ["product_id"], name: "index_bookmarks_on_product_id"
   end
