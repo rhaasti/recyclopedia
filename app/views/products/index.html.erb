@@ -14,7 +14,6 @@
 
 <div class="container py-5">
   <h3 class="py-5"> <%= pluralize @products.count, "relevant product" %></h3>
-
   <div class="product-grid">
     <% @products.each do |product|%>
       <% if params[:zipcode].nil? %>
