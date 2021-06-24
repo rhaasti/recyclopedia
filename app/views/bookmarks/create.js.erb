@@ -1,10 +1,15 @@
 
 var btnBookmark = document.querySelector("#btn-bookmark<%=@product.id%>");
-var btnBookmark = document.querySelector("#btn-bookmark");
 
 if (btnBookmark){
   btnBookmark.classList.remove('far');
   btnBookmark.classList.add('fas');
+};
+var btnBookmarkShow = document.querySelector("#btn-bookmark");
+
+if (btnBookmarkShow){
+  btnBookmarkShow.classList.remove('far');
+  btnBookmarkShow.classList.add('fas');
 };
 
 if ("<%=flash[:alert] %>") {
