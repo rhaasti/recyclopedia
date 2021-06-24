@@ -7,3 +7,29 @@
   border-radius: 8px;
   box-shadow: rgba(99, 99, 99, 1) 0px 2px 8px 0px;
 }
+.btn-filled-modal{
+  background-color: $dark-green !important;
+  background: linear-gradient(180deg, rgba(22,101,21,1) 0%, rgba(16,81,23,1) 50%)!important;
+  font-weight: lighter !important;
+  font-size:15px !important;
+  border-radius: 60px !important;
+  color: white !important;
+  padding: 8px 22px !important;
+  border-style: none !important;
+
+}
+.btn-terciary-modal{
+  color: $dark-green;
+  font-size: 19px;
+  border-style: none;
+  background-color: white;
+  &:hover{
+    color: $green;
+    text-decoration: underline !important;
+  }
+}
+.bookmark-modal label{
+  font-color: $light-black ;
+  font-size: 19px !important;
+  font-weight: normal !important;
+}

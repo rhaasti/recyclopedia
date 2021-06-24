@@ -23,7 +23,12 @@
     <% if current_user %>
       <%= render "bookmarks/new" %>
       <div class="btn-terciary">
-        <i class="fas fa-bookmark btn-bookmark" data-toggle="modal" data-target="#exampleModal"></i>
+        <!-- <i class="fas fa-bookmark btn-bookmark" data-toggle="modal" data-target="#exampleModal"></i> -->
+        <% if @product.bookmarked?(current_user) %>
+          <i class="fas fa-bookmark" id="btn-bookmark<%=@product.id%>" data-toggle="modal" data-target="#exampleModal<%=@product.id%>"></i>
+        <% else %>
+          <i class="far fa-bookmark" id="btn-bookmark<%=@product.id%>" data-toggle="modal" data-target="#exampleModal<%=@product.id%>"></i>
+        <% end %>
       </div>
     <% else %>
       <%= link_to bookmarks_alert_path do %>
@@ -33,7 +38,6 @@
   </div>
 
   <hr>
-
 
   <div class="product-card">
     <div class="img-container">

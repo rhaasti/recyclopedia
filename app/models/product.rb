@@ -17,8 +17,5 @@ class Product < ApplicationRecord
     user_lists_ids = user_lists.pluck(:id)
     bookmarks = Bookmark.where(list_id: user_lists_ids, product: self)
     bookmarks.any?
-    # buscar todos los bookmarks que contengan el producto(self)
-    # obtener listas del user
-    # ids de las listas y buscar los bookmarks que contengan esos ids
   end
 end

@@ -3,24 +3,24 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Save product to a list</h5>
+        <h6 class="modal-title" id="exampleModalLabel">Save product to a list</h6>
         <button type="button" id="closeModal" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
+      <div class="modal-body bookmark-modal">
 
       <%= simple_form_for([product, @bookmark], remote: true) do |f| %>
         <%= f.association :list, label: 'Select a list', collection: current_user.lists %>
         <%= f.hidden_field :zipcode, value: params[:zipcode] %>
         <div class="form-actions text-center">
-          <%= f.button :submit, class: "btn-filled close submit"%>
+          <%= f.button :submit, class: "btn-filled-modal close submit"%>
         </div>
       <% end %>
 
       </div>
-      <div class="modal-footer text-center">
-        <%=  button_to "+ Create a new list", new_list_path, :method => :get, :class=> "btn-terciary" %>
+      <div class="modal-footer justify-content-center">
+        <%=  button_to "Create a new list", new_list_path, :method => :get, :class=> "btn-terciary-modal" %>
       </div>
     </div>
   </div>

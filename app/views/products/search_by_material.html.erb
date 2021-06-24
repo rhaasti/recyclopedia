@@ -14,9 +14,6 @@
 
 <div class="container py-5">
   <h3 class="py-5"> <%= @products.count %> relevant products </h3>
-    <div class="py-4">
-      <%= link_to "Back to home", root_path, class:"btn-terciary" %>
-    </div>
 
   <div class="product-grid">
     <% @products.each do |product|%>
@@ -54,12 +51,15 @@
                   <%= link_to bookmarks_alert_path do %>
                     <i class="fas fa-bookmark"></i>
                   <% end %>
+                <% end %>
                 </div>
               </div>
           </div>
       <% end %>
     </div>
 
-  
+  <div class="py-5">
+    <%= link_to "Back to home", root_path, class:"btn-terciary" %>
+  </div>
 </div>
 </div>
