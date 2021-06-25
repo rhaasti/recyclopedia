@@ -302,6 +302,39 @@ end
     end
 end
 
+1.times do
+  file = URI.open("https://images-na.ssl-images-amazon.com/images/I/81aECON81yL._AC_SL1500_.jpg")
+  new_product = Product.create(description:"HP Stream 14-Inch Laptop", size:"14-inch screen", UPC:Faker::Barcode.upc_a)
+  new_product.photo.attach(io: file, filename: 'product.png', content_type: 'image/png')
+  pair_material = ["491"]
+    pair_material.each do |external_id|
+      material = Material.find_by(external_id: external_id)
+      ProductMaterial.create(product_id:new_product.id,material_id:material.id)
+    end
+end
+
+1.times do
+  file = URI.open("https://images-na.ssl-images-amazon.com/images/I/71zZNBi%2BCsL._AC_SL1100_.jpg")
+  new_product = Product.create(description:"Samsung 43\" LCD TV", size:"43\"", UPC:Faker::Barcode.upc_a)
+  new_product.photo.attach(io: file, filename: 'product.png', content_type: 'image/png')
+  pair_material = ["229"]
+    pair_material.each do |external_id|
+      material = Material.find_by(external_id: external_id)
+      ProductMaterial.create(product_id:new_product.id,material_id:material.id)
+    end
+end
+
+1.times do
+  file = URI.open("https://images-na.ssl-images-amazon.com/images/I/71HCTwXtOxL._AC_SL1200_.jpg")
+  new_product = Product.create(description:"Energizer AA Lithium Batteries (24 Battery Count)", size:"24 Batteries", UPC:Faker::Barcode.upc_a)
+  new_product.photo.attach(io: file, filename: 'product.png', content_type: 'image/png')
+  pair_material = ["689", "42"]
+    pair_material.each do |external_id|
+      material = Material.find_by(external_id: external_id)
+      ProductMaterial.create(product_id:new_product.id,material_id:material.id)
+    end
+end
+
 
 puts "...created #{Product.count} products"
 puts "...created #{ProductMaterial.count} product / material pairings"
