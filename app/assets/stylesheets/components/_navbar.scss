@@ -25,3 +25,29 @@
   }
 }
 
+// Smallest device
+@media (min-width: 100px) and (max-width: 575px) {
+  .btn-toggler {
+    color: $light-black !important;
+    background-color: $bg-gray !important;
+    background: none !important;
+    padding: none !important;
+    font-weight: normal !important;
+    font-size: 19px;
+    &:hover{
+      color: $green !important;;
+    }
+  }
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+  .btn-toggler {
+    color: $dark-green;
+    border-style: none;
+    background-color: none;
+    background: none;
+    &:hover{
+    }
+  }
+}
