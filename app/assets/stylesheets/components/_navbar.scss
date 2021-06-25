@@ -10,12 +10,18 @@
 .navbar-lewagon .navbar-brand img {
   width: 40px;
 }
+.dropdown-item{
+  color: $light-black !important;
+  &:hover{
+    background-color: #E8E8E8;
+  }
+}
 
 .dropdown-menu {
   background-color: #F0F0F0;
   border-radius: 10px;
   border: none;
-  top: 60px;
+  top: 50px;
 }
 .logo-dark-green{
   color: $dark-green;
@@ -33,21 +39,28 @@
     background: none !important;
     padding: none !important;
     font-weight: normal !important;
-    font-size: 19px;
+    font-size: 19px !important;
     &:hover{
-      color: $green !important;;
+      color: $green !important;
+    }
+  }
+  .nav-item {
+    text-align: center;
+    padding: 5px 0 !important;
+    &:hover{
+      background-color: #F0F0F0;
     }
   }
 }
 
-// Small devices (landscape phones, 576px and up)
-@media (min-width: 576px) {
-  .btn-toggler {
-    color: $dark-green;
-    border-style: none;
-    background-color: none;
-    background: none;
-    &:hover{
-    }
+@media (max-width: 768px) {
+  .container-block{
+    display: inline-block !important;
+  }
+  .container-search-bar{
+    margin: 13px;
+  }
+  .dropdown-menu-right{
+    position: static !important;
   }
 }

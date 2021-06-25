@@ -1,5 +1,5 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <div class="container pt-2">
+  <div class="container pt-2 container-block">
 
     <%= link_to root_path, class: "logo-dark-green" do %>
       <%= cl_image_tag("recyclopedia-logo", width: 160) %>
@@ -8,7 +8,7 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <% unless @controller_name %>
-      <div class="">
+      <div class="container-search-bar">
         <%= form_tag products_path, class: "search-bar", method: :get do %>
           <%= text_field_tag :query,
             params[:query],
@@ -28,14 +28,14 @@
           <li class="nav-item dropdown">
             <%= render "shared/avatar"%>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-              <%= link_to "My lists", lists_path, class: "dropdown-item dark-green" %>
-              <%= link_to "Create new list", new_list_path, class:"dropdown-item dark-grey" %>
-              <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item dark-grey" %>
+              <%= link_to "My lists", lists_path, class: "dropdown-item" %>
+              <%= link_to "Create new list", new_list_path, class: "dropdown-item" %>
+              <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
             </div>
           </li>
         <% else %>
           <li class="nav-item pr-4">
-            <%= link_to "Log in", new_user_session_path, class: "btn-terciary" %>
+            <%= link_to "Log in", new_user_session_path, class: "btn-terciary btn-toggler" %>
           </li>
           <li class="nav-item active">
           <%= link_to "Sign up", new_user_registration_path, class: "btn-filled btn-toggler" %>
