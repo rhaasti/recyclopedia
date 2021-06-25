@@ -7,18 +7,27 @@
 // Small devices (landscape phones, 576px and up)
 @media (max-width: 576px) {
   .new-list-container{
-    display: inline-block;
-
+    display: block !important;
+    text-align: center;
+    img {
+      padding-top: 30px;
+    }
   }
-
+  .form-cage{
+    margin: 16px !important;
+  }
 }
 
 // Medium devices (tablets, 768px and up)
 @media (max-width: 768px) {
   .new-list-container{
-  display: inline-block;
+    display: block !important;
+    text-align: center;
+    img {
+      padding-top: 30px;
+    }
   }
-  // .product-info{
-  //   padding-top: 30px;
-  // }
+  .form-cage{
+    margin: 16px !important;
+  }
 }

@@ -14,7 +14,7 @@
           <div class="list-imgs">
             <% if list.product_ids.length > 0 %>
               <% list.products[0..2].each do |product| %>
-                <%= cl_image_tag (product.photo.key), width: 90, height: 90, crop: :fill  %>
+                <%= cl_image_tag (product.photo.key), width: 90, height: 90, crop: :fill , :class => "img_preview"  %>
               <% end %>
             <% end %>
           </div>
