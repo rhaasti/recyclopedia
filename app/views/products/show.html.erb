@@ -18,7 +18,7 @@
     <%= link_to "Back to products", products_path(zipcode: params[:zipcode]), class:"btn-terciary" %>
     <!-- <i class="fas fa-arrow-left"></i> -->
   </div>
-  <div class="title-box", data-external-material-ids="<%= @material_external_ids %>">
+  <div class="title-box", data-external-material-ids="<%= @material_external_ids.first %>">
     <h3><%= @product.description %></h3>
     <% if current_user %>
       <%= render "bookmarks/new" %>

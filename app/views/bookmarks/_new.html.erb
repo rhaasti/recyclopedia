@@ -4,12 +4,12 @@
     <div class="modal-content">
       <div class="modal-header">
         <h6 class="modal-title" id="exampleModalLabel">Save product to a list</h6>
-        <button type="button" id="closeModal" class="close" data-dismiss="modal" aria-label="Close">
+        <button type="button" id="closeModal<%=@product.id%>" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body bookmark-modal">
-      <%= simple_form_for([@product, @list, @bookmark], remote: true) do |f| %>
+      <div class="modal-body">
+      <%= simple_form_for([@product, @bookmark], remote: true) do |f| %>
         <%= f.association :list, label: 'Select a list', collection: current_user.lists %>
         <%= f.hidden_field :zipcode, value: params[:zipcode] %>
         <div class="form-actions text-center">

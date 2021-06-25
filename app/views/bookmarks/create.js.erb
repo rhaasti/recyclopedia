@@ -18,9 +18,11 @@ if ("<%=flash[:alert] %>") {
 };
 
 if ("<%=flash[:notice] %>") {
+  console.log("bookmark!")
   document.querySelector("#flash-alert").innerText = "<%= flash[:notice] %>";
   document.querySelector("#flash-alert").classList.remove("d-none");
-  document.querySelector("#closeModal").click();
+  document.querySelector("#closeModal<%=@product.id%>").click();
+  console.log("modal!")
 };
 
 
