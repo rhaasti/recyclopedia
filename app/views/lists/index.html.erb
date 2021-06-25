@@ -1,12 +1,12 @@
 <div class="container">
   <div class="list-title">
     <h2><%= current_user.first_name %>'s lists </h2>
-    <%= link_to "Create new list", new_list_path, class: "link" %>
+    <%= link_to "Create new list", new_list_path, class: "btn-terciary" %>
   </div>
   <hr>
 
   <div class="list-index-cards">
-    <% @lists.each do |list| %> 
+    <% @lists.each do |list| %>
       <%= link_to list_path(list) do %>
         <div class="list-index-card">
           <h3><%= list.name %></h3>
@@ -20,7 +20,7 @@
           </div>
 
         </div>
-      <% end %> 
+      <% end %>
     <% end %>
   </div>
 </div>

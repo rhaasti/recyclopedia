@@ -20,11 +20,11 @@ class BookmarksController < ApplicationController
     @bookmark.product = @product
     if @bookmark.save
       respond_to do |format|
-        format.js { flash.now[:notice] = "Product added to list!"}
+        format.js { flash.now[:notice] = "🎉 Product added to list!"}
       end
     else
       respond_to do |format|
-        format.js { flash.now[:alert] = "Product has already been added to this list!"}
+        format.js { flash.now[:alert] = "🤔 Product has already been added to this list!"}
       end
     end
   end
