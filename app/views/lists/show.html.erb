@@ -1,12 +1,12 @@
 <div class="container">
   <h2 class="list-title"><%= @list.name %></h2>
   <hr>
-  
+
   <% if @list.products.empty? %>
     <h3> Search for products, then save to <span class="green-highlight"><%= @list.name %></span></h3>
   <% else %>
     <div class="list-cards">
-      <% @list.bookmarks.each do |bookmark|%>     
+      <% @list.bookmarks.each do |bookmark|%>
         <%= render "products/zipcode_modal", product: bookmark.product %>
         <div class="list-product" data-toggle="modal" data-target="#ZipcodeModal<%= bookmark.product.id %>">
               <div class="list-card">

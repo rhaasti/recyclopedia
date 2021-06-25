@@ -33,6 +33,9 @@
 
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
+  // .logo-dark-green{
+  // padding-right: 50%;
+  // }
   .btn-toggler {
     color: $light-black !important;
     background-color: $bg-gray !important;
