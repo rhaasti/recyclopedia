@@ -4,7 +4,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Save product to a list</h5>
-        <button type="button" id="closeModal" class="close" data-dismiss="modal" aria-label="Close">
+        <button type="button" id="closeModal<%=product.id%>" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
@@ -14,7 +14,7 @@
         <%= f.association :list, label: 'Select a list', collection: current_user.lists %>
         <%= f.hidden_field :zipcode, value: params[:zipcode] %>
         <div class="form-actions text-center">
-          <%= f.button :submit, class: "btn-filled close submit"%>
+          <%= f.button :submit, class: "btn-filled submit", id: "closeModal" %>
         </div>
       <% end %>
 

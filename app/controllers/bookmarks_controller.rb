@@ -21,12 +21,10 @@ class BookmarksController < ApplicationController
     if @bookmark.save
       respond_to do |format|
         format.js { flash.now[:notice] = "Product added to list!"}
-      # redirect_to product_path(@product, zipcode:params[:bookmark][:zipcode]), notice: "your product has been added to the list"
       end
     else
       respond_to do |format|
         format.js { flash.now[:alert] = "Product has already been added to this list!"}
-      # redirect_to product_path(@product, zipcode:params[:bookmark][:zipcode]), alert: "your product has already been added to this list!"
       end
     end
   end
