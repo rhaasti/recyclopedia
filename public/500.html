@@ -51,16 +51,35 @@
     color: #666;
     box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
   }
+  .container-error-page{
+    text-align: center;
+    font-family: "Lora", sans-serif;
+    color: #363636;
+    padding-top: 60px;
+  }
+  .container-error-page p{
+    font-family: "Nunito", sans-serif;
+    color: #8F8F8F;
+  }
+  .error-page-img{
+    width: 700px;
+    max-width:100%;
+    height:auto;
+  }
   </style>
 </head>
 
-<body class="rails-default-error-page">
-  <!-- This file lives in public/500.html -->
-  <div class="dialog">
-    <div>
-      <h1>We're sorry, but something went wrong.</h1>
+<body>
+  <!-- This file lives in public/404.html -->
+  <div class="container-error-page">
+    <div class="dialog">
+      <div>
+        <h1>500 Internal server error.</h1>
+        <p>Please try again later.</p>
+      </div>
+      <!-- <p>If you are the application owner check the logs for more information.</p> -->
     </div>
-    <p>If you are the application owner check the logs for more information.</p>
+      <img class="error-page-img" src="error_500.svg">
   </div>
 </body>
 </html>
