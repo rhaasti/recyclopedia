@@ -19,7 +19,7 @@ if (zipcode && map ) {
       image_url: 'https://res.cloudinary.com/dg5c592li/image/upload/v1623527941/home-icon.png'
     }
     const externalMaterialIds = document.querySelector('.title-box').dataset.externalMaterialIds;
-    const programUrl  = `https://api.earth911.com/earth911.searchPrograms?api_key=5b7412cae7282842&latitude=${lat}&longitude=${long}&material_ids=${externalMaterialIds}`
+    const programUrl  = `https://api.earth911.com/earth911.searchPrograms?api_key=5b7412cae7282842&latitude=${lat}&longitude=${long}&material_id=${externalMaterialIds}`
     console.log(programUrl)
 
     document.getElementById('map').dataset.coordinates  = JSON.stringify(userCoords);
@@ -65,11 +65,11 @@ const infoWindow = (programInfo) => {
     <h6>${programInfo['description']}</h6>
 
      ${
-       programInfo['hours'].length > 0 ? `<p><i class="fas fa-clock"></i> ${programInfo['hours']}` :
+       programInfo['hours'] !== null ? `<p><i class="fas fa-clock"></i> ${programInfo['hours']}` :
         `<strong>Hours:</strong> Didn't specify</p>`
       }
       ${
-        programInfo['phone'].length > 0 ? `<p><i class="fas fa-phone"></i> ${programInfo['phone']}` :
+        programInfo['phone'] !== null ? `<p><i class="fas fa-phone"></i> ${programInfo['phone']}` :
         `<strong>Phone:</strong> Didn't specify</p>`
       }
       ${
@@ -77,7 +77,7 @@ const infoWindow = (programInfo) => {
         `<strong>Curbside</strong> No</p>`
       }
       ${
-        programInfo['notes'].length > 0 ? `<p>${programInfo['notes']}` :
+        programInfo['notes'] !== null ? `<p>${programInfo['notes']}` :
         `<strong>Notes:</strong> None</p>`
       }
 
