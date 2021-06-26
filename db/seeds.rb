@@ -339,7 +339,7 @@ end
   file = URI.open("https://images-na.ssl-images-amazon.com/images/I/81lj2n%2BMvzL._AC_SL1500_.jpg")
   new_product = Product.create(description:"Loctite Insulating Foam Sealant", size:"12 oz Can", UPC:Faker::Barcode.upc_a)
   new_product.photo.attach(io: file, filename: 'product.png', content_type: 'image/png')
-  pair_material = ["187"]
+  pair_material = ["187", "458"]
     pair_material.each do |external_id|
       material = Material.find_by(external_id: external_id)
       ProductMaterial.create(product_id:new_product.id,material_id:material.id)
@@ -350,7 +350,7 @@ end
   file = URI.open("https://images-na.ssl-images-amazon.com/images/I/51-yGrRQniL._SL1000_.jpg")
   new_product = Product.create(description:"Gasoila Stainless Steel Polish", size:"15 oz Aerosol", UPC:Faker::Barcode.upc_a)
   new_product.photo.attach(io: file, filename: 'product.png', content_type: 'image/png')
-  pair_material = ["121"]
+  pair_material = ["121", "458"]
     pair_material.each do |external_id|
       material = Material.find_by(external_id: external_id)
       ProductMaterial.create(product_id:new_product.id,material_id:material.id)
@@ -361,7 +361,7 @@ end
   file = URI.open("https://images-na.ssl-images-amazon.com/images/I/61AFVkiFwTL._AC_SL1500_.jpg")
   new_product = Product.create(description:"Prestone Synthetic Brake Fluid", size:"12 oz", UPC:Faker::Barcode.upc_a)
   new_product.photo.attach(io: file, filename: 'product.png', content_type: 'image/png')
-  pair_material = ["108"]
+  pair_material = ["108", "458"]
     pair_material.each do |external_id|
       material = Material.find_by(external_id: external_id)
       ProductMaterial.create(product_id:new_product.id,material_id:material.id)
@@ -383,7 +383,7 @@ end
   file = URI.open("https://images-na.ssl-images-amazon.com/images/I/71fLAeT5GZL._AC_SL1500_.jpg")
   new_product = Product.create(description:"Southern AG Weed Killer", size:"32 oz", UPC:Faker::Barcode.upc_a)
   new_product.photo.attach(io: file, filename: 'product.png', content_type: 'image/png')
-  pair_material = ["181"]
+  pair_material = ["181", "458"]
     pair_material.each do |external_id|
       material = Material.find_by(external_id: external_id)
       ProductMaterial.create(product_id:new_product.id,material_id:material.id)
@@ -436,7 +436,7 @@ end
 
 1.times do
   file = URI.open("https://images-na.ssl-images-amazon.com/images/I/81vNbt3EtLL._AC_SL1500_.jpg")
-  new_product = Product.create(description:"Tenergy AA Rechargeable Nickel-Cadmium Batteries (24 Battery Count)", size:"24 Batteries", UPC:Faker::Barcode.upc_a)
+  new_product = Product.create(description:"Tenergy AA Nickel-Cadmium Batteries (24 Battery Count)", size:"24 Batteries", UPC:Faker::Barcode.upc_a)
   new_product.photo.attach(io: file, filename: 'product.png', content_type: 'image/png')
   pair_material = ["126", "42"]
     pair_material.each do |external_id|
@@ -460,7 +460,7 @@ end
   file = URI.open("https://images-na.ssl-images-amazon.com/images/I/71wWnt6pZ9L._AC_SL1500_.jpg")
   new_product = Product.create(description:"BIC Classic Lighter, Fashion Assorted Colors", size:"10 Pack", UPC:Faker::Barcode.upc_a)
   new_product.photo.attach(io: file, filename: 'product.png', content_type: 'image/png')
-  pair_material = ["517"]
+  pair_material = ["517", "411"]
     pair_material.each do |external_id|
       material = Material.find_by(external_id: external_id)
       ProductMaterial.create(product_id:new_product.id,material_id:material.id)
@@ -515,7 +515,7 @@ end
   file = URI.open("https://target.scene7.com/is/image/Target/GUEST_2f4999ad-21da-482d-b038-fa4a919b8677?fmt=webp&wid=1400&qlt=80")
   new_product = Product.create(description:"Rao's Marinara Sauce", size:"15.5 oz", UPC:Faker::Barcode.upc_a)
   new_product.photo.attach(io: file, filename: 'product.png', content_type: 'image/png')
-  pair_material = ["77"]
+  pair_material = ["77", "434"]
     pair_material.each do |external_id|
       material = Material.find_by(external_id: external_id)
       ProductMaterial.create(product_id:new_product.id,material_id:material.id)
@@ -537,7 +537,7 @@ end
   file = URI.open("https://images-na.ssl-images-amazon.com/images/I/81jiOAQVjdL._AC_SL1500_.jpg")
   new_product = Product.create(description:"Windex Aerosol Foaming Glass Cleaner", size:"19.7 oz", UPC:Faker::Barcode.upc_a)
   new_product.photo.attach(io: file, filename: 'product.png', content_type: 'image/png')
-  pair_material = ["121"]
+  pair_material = ["121", "458"]
     pair_material.each do |external_id|
       material = Material.find_by(external_id: external_id)
       ProductMaterial.create(product_id:new_product.id,material_id:material.id)
